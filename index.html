@@ -798,13 +798,6 @@ function validateIsraeliId(id) {
   return sum % 10 === 0;
 }
 function validatePhone(p) { return /^0[5][0-9]-?\d{7}$/.test(p.replace(/\s/g,'')); }
-// Converts 0501234567, 050-1234567, "050 1234567" etc. to +972501234567
-function formatPhoneIntl(p) {
-  const digits = p.replace(/\D/g, '');           // keep digits only
-  if (digits.startsWith('0')) return '+972' + digits.substring(1);
-  if (digits.startsWith('972')) return '+' + digits;
-  return '+972' + digits;
-}
 
 document.getElementById('leadForm').addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -813,7 +806,7 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
   const name = document.getElementById('full_name').value.trim();
   const id   = document.getElementById('id_number').value.trim();
   const dob  = document.getElementById('birth_date').value;
-  const phone= document.getElementById('phone').value.trim();
+  const phone= document.getElementById('phone').value.trim().replace(/\D/g, '');
   const consent = document.getElementById('consent').checked;
 
   // Validate
@@ -856,7 +849,7 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
     formData.append('full_name', name);
     formData.append('id_number', id);
     formData.append('birth_date', dob);
-    formData.append('phone', formatPhoneIntl(phone));
+    formData.append('phone', phone);
     formData.append('language', currentLang);
     formData.append('utm_source', new URLSearchParams(window.location.search).get('utm_source') || 'direct');
 
