@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שמש מימוש זכויות — משיכת חסכונות פנסיוניים</title>
+<link rel="canonical" href="https://tifult906-netizen.github.io">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #1D3D6B;
+  --navy-light: #2a5298;
+  --gold: #F5A623;
+  --gold-light: #ffc84a;
+  --bg: #F7F6F3;
+  --white: #ffffff;
+  --text: #1a1a2e;
+  --text-light: #5a6a7a;
+  --radius: 16px;
+  --shadow: 0 8px 40px rgba(29,61,107,0.13);
+
+  /* Accessibility vars */
+  --font-scale: 1;
+  --contrast: 1;
+}
+
+/* ===== ACCESSIBILITY OVERRIDES ===== */
+body.high-contrast {
+  --navy: #000080;
+  --gold: #FFD700;
+  --bg: #ffffff;
+  --text: #000000;
+  --text-light: #333333;
+}
+body.large-text { --font-scale: 1.25; }
+body.xlarge-text { --font-scale: 1.5; }
+body.no-animations * { animation: none !important; transition: none !important; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Heebo', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: calc(16px * var(--font-scale));
+  direction: rtl;
+}
+body[lang="ar"] { font-family: 'Noto Kufi Arabic', sans-serif; }
+body[lang="en"] { direction: ltr; font-family: 'Heebo', sans-serif; }
+
+/* ===== ACCESSIBILITY WIDGET ===== */
+#accessibility-btn {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  transition: transform 0.2s, background 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+#accessibility-btn:hover { transform: scale(1.1); background: var(--gold); color: var(--navy); }
+
+#accessibility-panel {
+  position: fixed;
+  left: 20px;
+  bottom: 85px;
+  z-index: 9998;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+  padding: 20px;
+  width: 240px;
+  display: none;
+  direction: rtl;
+}
+#accessibility-panel.open { display: block; animation: slideUp 0.2s ease; }
+#accessibility-panel h3 { font-size: 14px; color: var(--navy); margin-bottom: 14px; font-weight: 700; }
+
+.acc-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 12px;
+  margin-bottom: 8px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text);
+  transition: all 0.15s;
+  font-family: inherit;
+  text-align: right;
+}
+.acc-btn:hover { border-color: var(--navy); background: #f0f4ff; }
+.acc-btn.active { border-color: var(--gold); background: #fff8ee; font-weight: 700; }
+
+/* ===== LANGUAGE SWITCHER ===== */
+.lang-bar {
+  background: var(--navy);
+  padding: 10px 40px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 6px;
+  align-items: center;
+}
+.lang-btn {
+  padding: 5px 16px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  font-size: 13px;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+.lang-btn:hover, .lang-btn.active {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+  font-weight: 700;
+}
+
+/* ===== HEADER / HERO ===== */
+header {
+  background: linear-gradient(135deg, var(--navy) 0%, #16305a 100%);
+  padding: 28px 40px 0;
+  position: relative;
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: -60px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(245,166,35,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.logo-area img {
+  height: 70px;
+  width: 70px;
+  object-fit: contain;
+  background: white;
+  border-radius: 50%;
+  padding: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+.logo-area .logo-fallback {
+  display: none;
+  color: white;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+.logo-area .logo-fallback span { color: var(--gold); }
+
+.hero-content {
+  text-align: center;
+  padding-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(245,166,35,0.2);
+  border: 1px solid rgba(245,166,35,0.4);
+  color: var(--gold);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: 0.3px;
+}
+.hero-title {
+  color: white;
+  font-size: calc(46px * var(--font-scale));
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+}
+.hero-title span { color: var(--gold); }
+.hero-sub {
+  color: rgba(255,255,255,0.8);
+  font-size: calc(18px * var(--font-scale));
+  max-width: 580px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+.hero-cta {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold) 0%, #e8940f 100%);
+  color: var(--navy);
+  font-size: calc(18px * var(--font-scale));
+  font-weight: 800;
+  padding: 18px 48px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 30px rgba(245,166,35,0.45);
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: pulse 2.5s infinite;
+}
+.hero-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(245,166,35,0.6); animation: none; }
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 6px 30px rgba(245,166,35,0.45); }
+  50% { box-shadow: 0 6px 45px rgba(245,166,35,0.7); }
+}
+
+.hero-wave {
+  margin-bottom: -2px;
+  display: block;
+  width: 100%;
+}
+
+/* ===== STATS BAR ===== */
+.stats-bar {
+  background: var(--white);
+  padding: 28px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  box-shadow: 0 4px 20px rgba(29,61,107,0.08);
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-size: calc(32px * var(--font-scale));
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1;
+}
+.stat-num span { color: var(--gold); }
+.stat-label {
+  font-size: calc(13px * var(--font-scale));
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+/* ===== SECTIONS ===== */
+section { padding: 70px 40px; }
+.section-title {
+  text-align: center;
+  font-size: calc(32px * var(--font-scale));
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+.section-sub {
+  text-align: center;
+  color: var(--text-light);
+  font-size: calc(16px * var(--font-scale));
+  margin-bottom: 50px;
+}
+.gold-line {
+  width: 60px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin: 12px auto 40px;
+}
+
+/* ===== HOW IT WORKS ===== */
+.steps-bg { background: var(--white); }
+.steps-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.step-card {
+  flex: 1;
+  min-width: 220px;
+  max-width: 260px;
+  text-align: center;
+  padding: 36px 24px;
+  border-radius: var(--radius);
+  background: var(--bg);
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.step-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+.step-num {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  color: white;
+  font-size: 22px;
+  font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 18px;
+  box-shadow: 0 4px 16px rgba(29,61,107,0.3);
+}
+.step-icon { font-size: 36px; margin-bottom: 14px; }
+.step-title { font-size: calc(17px * var(--font-scale)); font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.step-desc { font-size: calc(14px * var(--font-scale)); color: var(--text-light); line-height: 1.6; }
+
+/* ===== WHY US ===== */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.why-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 30px 26px;
+  border-right: 4px solid var(--gold);
+  box-shadow: 0 2px 20px rgba(29,61,107,0.07);
+  transition: transform 0.2s;
+}
+body[lang="en"] .why-card { border-right: none; border-left: 4px solid var(--gold); }
+.why-card:hover { transform: translateY(-4px); }
+.why-icon { font-size: 32px; margin-bottom: 12px; }
+.why-title { font-size: calc(17px * var(--font-scale)); font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.why-text { font-size: calc(14px * var(--font-scale)); color: var(--text-light); line-height: 1.65; }
+
+/* ===== FORM SECTION ===== */
+.form-section {
+  background: linear-gradient(135deg, var(--navy) 0%, #16305a 100%);
+  position: relative;
+  overflow: hidden;
+}
+.form-section::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(245,166,35,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.form-section .section-title { color: white; }
+.form-section .section-sub { color: rgba(255,255,255,0.7); }
+
+.form-card {
+  background: white;
+  border-radius: 24px;
+  padding: 44px 48px;
+  max-width: 560px;
+  margin: 0 auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  position: relative;
+  z-index: 1;
+}
+
+.form-group { margin-bottom: 22px; }
+.form-group label {
+  display: block;
+  font-size: calc(14px * var(--font-scale));
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 7px;
+}
+.form-group label .req { color: var(--gold); margin-right: 3px; }
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e8ecf0;
+  border-radius: 12px;
+  font-size: calc(15px * var(--font-scale));
+  font-family: inherit;
+  color: var(--text);
+  background: #fafafa;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  direction: inherit;
+}
+.form-group input:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 4px rgba(29,61,107,0.08);
+  background: white;
+}
+.form-group input.error { border-color: #e53e3e; }
+.error-msg { color: #e53e3e; font-size: 12px; margin-top: 5px; display: none; }
+.error-msg.show { display: block; }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.consent-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 24px;
+  font-size: calc(13px * var(--font-scale));
+  color: var(--text-light);
+  line-height: 1.5;
+}
+.consent-row input[type="checkbox"] {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: var(--navy);
+  cursor: pointer;
+}
+.consent-row a { color: var(--navy); text-decoration: underline; }
+
+.submit-btn {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, var(--gold) 0%, #e8940f 100%);
+  color: var(--navy);
+  font-size: calc(18px * var(--font-scale));
+  font-weight: 800;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(245,166,35,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(245,166,35,0.55); }
+.submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+/* Success state */
+.success-msg {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+  animation: fadeIn 0.4s ease;
+}
+.success-msg.show { display: block; }
+.success-icon { font-size: 64px; margin-bottom: 16px; }
+.success-title { font-size: calc(24px * var(--font-scale)); font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+.success-text { font-size: calc(15px * var(--font-scale)); color: var(--text-light); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 30px 40px;
+  font-size: calc(13px * var(--font-scale));
+  line-height: 1.8;
+}
+footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+footer a:hover { color: var(--gold); }
+footer .footer-logo {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
+  margin-bottom: 12px;
+}
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 10px 0 14px 0;
+}
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.85);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.footer-social a:hover { background: var(--gold); color: var(--navy); transform: translateY(-2px); }
+.footer-social svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+  header { padding: 20px 20px 0; }
+  .hero-title { font-size: calc(30px * var(--font-scale)); }
+  .hero-sub { font-size: calc(15px * var(--font-scale)); }
+  .stats-bar { gap: 24px; flex-wrap: wrap; padding: 20px; }
+  section { padding: 50px 20px; }
+  .form-card { padding: 28px 20px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .lang-bar { padding: 10px 20px; }
+  #accessibility-btn { left: 14px; bottom: 14px; width: 48px; height: 48px; font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== LANGUAGE BAR ===== -->
+<div class="lang-bar" role="navigation" aria-label="Language selector">
+  <button class="lang-btn active" onclick="setLang('he')" aria-label="עברית">🇮🇱 עברית</button>
+  <button class="lang-btn" onclick="setLang('ar')" aria-label="العربية">🇮🇱 العربية</button>
+  <button class="lang-btn" onclick="setLang('en')" aria-label="English">🌐 English</button>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header role="banner">
+  <div class="header-top">
+    <div class="logo-area">
+      <img src="לוגו_שמש.jpg" alt="שמש מימוש זכויות" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <div class="logo-fallback">☀️ <span>שמש</span> מימוש זכויות</div>
+    </div>
+    <div style="color:rgba(255,255,255,0.7); font-size:13px;" class="i18n" data-he="שירות מקצועי ואישי" data-ar="خدمة احترافية وشخصية" data-en="Professional & Personal Service">שירות מקצועי ואישי</div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge i18n" data-he="✓ ייעוץ ראשוני ללא עלות" data-ar="✓ استشارة أولية مجانية" data-en="✓ Free Initial Consultation">✓ ייעוץ ראשוני ללא עלות</div>
+    <h1 class="hero-title i18n"
+      data-he="<span>כסף שמגיע לך</span><br>כבר מחכה לך"
+      data-ar="<span>أموالك</span><br>في انتظارك"
+      data-en="Your <span>Pension Savings</span><br>Are Waiting for You">
+      <span>כסף שמגיע לך</span><br>כבר מחכה לך
+    </h1>
+    <p class="hero-sub i18n"
+      data-he="אנחנו עוזרים לך למשוך את חסכונות הפנסיה שלך — בצורה חוקית, מהירה ובלי בירוקרטיה מיותרת."
+      data-ar="نساعدك على استرداد مدخرات التقاعد الخاصة بك — بشكل قانوني وسريع وبدون تعقيدات."
+      data-en="We help you access your pension savings — legally, quickly, and without unnecessary bureaucracy.">
+      אנחנו עוזרים לך למשוך את חסכונות הפנסיה שלך — בצורה חוקית, מהירה ובלי בירוקרטיה מיותרת.
+    </p>
+    <a href="#form" class="hero-cta i18n"
+      data-he="בדוק את זכאותך עכשיו ←"
+      data-ar="تحقق من أهليتك الآن ←"
+      data-en="Check Your Eligibility Now →">
+      בדוק את זכאותך עכשיו ←
+    </a>
+  </div>
+
+  <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,40 C360,80 1080,0 1440,40 L1440,60 L0,60 Z" fill="#F7F6F3"/>
+  </svg>
+</header>
+
+<!-- ===== STATS BAR ===== -->
+<div class="stats-bar fade-in" role="region" aria-label="Statistics">
+  <div class="stat-item">
+    <div class="stat-num i18n" data-he="+3,000<span> לקוחות</span>" data-ar="+3,000<span> عميل</span>" data-en="+3,000<span> Clients</span>">+3,000<span> לקוחות</span></div>
+    <div class="stat-label i18n" data-he="נעזרו בנו עד היום" data-ar="استفادوا من خدماتنا" data-en="Helped so far">נעזרו בנו עד היום</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num i18n" data-he="98<span>%</span>" data-ar="98<span>%</span>" data-en="98<span>%</span>">98<span>%</span></div>
+    <div class="stat-label i18n" data-he="שביעות רצון לקוחות" data-ar="رضا العملاء" data-en="Customer Satisfaction">שביעות רצון לקוחות</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num i18n" data-he="72<span> שעות</span>" data-ar="72<span> ساعة</span>" data-en="72<span> hours</span>">72<span> שעות</span></div>
+    <div class="stat-label i18n" data-he="ממוצע עד קבלת התשובה" data-ar="متوسط وقت الرد" data-en="Average response time">ממוצע עד קבלת התשובה</div>
+  </div>
+</div>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="steps-bg fade-in" role="region" aria-labelledby="steps-title">
+  <h2 class="section-title i18n" id="steps-title" data-he="איך זה עובד?" data-ar="كيف يعمل؟" data-en="How Does It Work?">איך זה עובד?</h2>
+  <p class="section-sub i18n" data-he="3 צעדים פשוטים לכסף שמגיע לך" data-ar="3 خطوات بسيطة للوصول إلى أموالك" data-en="3 Simple Steps to Access Your Money">3 צעדים פשוטים לכסף שמגיע לך</p>
+  <div class="gold-line"></div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-icon">📋</div>
+      <div class="step-title i18n" data-he="ממלא טופס" data-ar="تعبئة النموذج" data-en="Fill the Form">ממלא טופס</div>
+      <div class="step-desc i18n" data-he="השאר פרטים בטופס הקצר — לוקח פחות מדקה" data-ar="أدخل بياناتك في النموذج القصير — أقل من دقيقة" data-en="Fill in the short form — takes less than a minute">השאר פרטים בטופס הקצר — לוקח פחות מדקה</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-icon">📞</div>
+      <div class="step-title i18n" data-he="נציג חוזר אליך" data-ar="يتواصل معك أحد ممثلينا" data-en="We Call You Back">נציג חוזר אליך</div>
+      <div class="step-desc i18n" data-he="נציג מקצועי יצור איתך קשר תוך 24 שעות לבדיקת הזכאות" data-ar="سيتواصل معك أحد المختصين خلال 24 ساعة للتحقق من الأهلية" data-en="A professional will contact you within 24 hours to check eligibility">נציג מקצועי יצור איתך קשר תוך 24 שעות לבדיקת הזכאות</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-icon">💰</div>
+      <div class="step-title i18n" data-he="מקבל את הכסף" data-ar="استلام الأموال" data-en="Receive Your Money">מקבל את הכסף</div>
+      <div class="step-desc i18n" data-he="אנחנו מטפלים בכל הבירוקרטיה — אתה רק מקבל את הכסף לחשבון" data-ar="نتولى كل الإجراءات البيروقراطية — وتستلم الأموال مباشرة" data-en="We handle all paperwork — you just receive the money in your account">אנחנו מטפלים בכל הבירוקרטיה — אתה רק מקבל את הכסף לחשבון</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY US ===== -->
+<section class="fade-in" role="region" aria-labelledby="why-title">
+  <h2 class="section-title i18n" id="why-title" data-he="למה שמש?" data-ar="لماذا شمش؟" data-en="Why Choose Us?">למה שמש?</h2>
+  <div class="gold-line"></div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">⚖️</div>
+      <div class="why-title i18n" data-he="פעולה חוקית לחלוטין" data-ar="إجراءات قانونية تماماً" data-en="100% Legal">פעולה חוקית לחלוטין</div>
+      <div class="why-text i18n" data-he="כל התהליך מתבצע בהתאם לחוק הישראלי ובאישור הגורמים המוסמכים" data-ar="تتم جميع الإجراءات وفق القانون الإسرائيلي وبموافقة الجهات المختصة" data-en="The entire process complies with Israeli law and authorized bodies">כל התהליך מתבצע בהתאם לחוק הישראלי ובאישור הגורמים המוסמכים</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🤝</div>
+      <div class="why-title i18n" data-he="ללא עלות מראש" data-ar="بدون تكلفة مسبقة" data-en="No Upfront Cost">ללא עלות מראש</div>
+      <div class="why-text i18n" data-he="אנחנו עובדים בהצלחה — משלמים רק אם קיבלת כסף" data-ar="نعمل بنظام النجاح — تدفع فقط عند استلام أموالك" data-en="We work on success basis — you pay only when you receive money">אנחנו עובדים בהצלחה — משלמים רק אם קיבלת כסף</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🛡️</div>
+      <div class="why-title i18n" data-he="פרטיות מלאה" data-ar="خصوصية تامة" data-en="Full Privacy">פרטיות מלאה</div>
+      <div class="why-text i18n" data-he="המידע שלך מוגן ומאובטח. אנחנו לא מעבירים פרטים לגורמים שלישיים" data-ar="معلوماتك محمية وآمنة. نحن لا نشارك بياناتك مع أطراف ثالثة" data-en="Your information is protected and secure. We never share details with third parties">המידע שלך מוגן ומאובטח. אנחנו לא מעבירים פרטים לגורמים שלישיים</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <div class="why-title i18n" data-he="תהליך מהיר" data-ar="عملية سريعة" data-en="Fast Process">תהליך מהיר</div>
+      <div class="why-text i18n" data-he="אנחנו מטפלים בכל הניירת עבורך ומזרזים את התהליך מול הגופים הפנסיוניים" data-ar="نتولى جميع الأوراق عنك ونسرّع العملية مع صناديق التقاعد" data-en="We handle all paperwork and expedite the process with pension bodies">אנחנו מטפלים בכל הניירת עבורך ומזרזים את התהליך מול הגופים הפנסיוניים</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🧾</div>
+      <div class="why-title i18n" data-he="תכנוני מס חכמים" data-ar="تخطيط ضريبي ذكي" data-en="Smart Tax Planning">תכנוני מס חכמים</div>
+      <div class="why-text i18n" data-he="אנחנו מתכננים את המשיכה בצורה החכמה ביותר מבחינת מס — כך שתשלם כמה שפחות ותקבל כמה שיותר" data-ar="نخطط لعملية السحب بأذكى طريقة ضريبية ممكنة — لتدفع أقل وتحصل على أكثر" data-en="We plan your withdrawal in the most tax-efficient way — so you pay less and receive more">אנחנו מתכננים את המשיכה בצורה החכמה ביותר מבחינת מס — כך שתשלם כמה שפחות ותקבל כמה שיותר</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORM ===== -->
+<section class="form-section" id="form" role="region" aria-labelledby="form-title">
+  <h2 class="section-title i18n" id="form-title" data-he="השאר פרטים — נחזור אליך" data-ar="اترك بياناتك — سنتواصل معك" data-en="Leave Your Details — We'll Call You">השאר פרטים — נחזור אליך</h2>
+  <p class="section-sub i18n" data-he="פחות מדקה. ללא התחייבות." data-ar="أقل من دقيقة. بدون التزام." data-en="Less than a minute. No commitment.">פחות מדקה. ללא התחייבות.</p>
+
+  <div class="form-card">
+    <form id="leadForm" novalidate>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="full_name"><span class="req">*</span><span class="i18n" data-he="שם מלא" data-ar="الاسم الكامل" data-en="Full Name">שם מלא</span></label>
+          <input type="text" id="full_name" name="full_name" autocomplete="name" placeholder="" required aria-required="true">
+          <div class="error-msg i18n" id="err_name" data-he="נא להזין שם מלא" data-ar="يرجى إدخال الاسم الكامل" data-en="Please enter your full name">נא להזין שם מלא</div>
+        </div>
+        <div class="form-group">
+          <label for="id_number"><span class="req">*</span><span class="i18n" data-he="תעודת זהות" data-ar="رقم الهوية" data-en="ID Number">תעודת זהות</span></label>
+          <input type="text" id="id_number" name="id_number" inputmode="numeric" maxlength="9" placeholder="9 ספרות" required aria-required="true">
+          <div class="error-msg i18n" id="err_id" data-he="נא להזין ת.ז. תקינה (9 ספרות)" data-ar="يرجى إدخال رقم هوية صحيح (9 أرقام)" data-en="Please enter a valid ID (9 digits)">נא להזין ת.ז. תקינה (9 ספרות)</div>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="birth_date"><span class="req">*</span><span class="i18n" data-he="תאריך לידה" data-ar="تاريخ الميلاد" data-en="Date of Birth">תאריך לידה</span></label>
+          <input type="date" id="birth_date" name="birth_date" required aria-required="true">
+          <div class="error-msg i18n" id="err_dob" data-he="נא להזין תאריך לידה" data-ar="يرجى إدخال تاريخ الميلاد" data-en="Please enter your date of birth">נא להזין תאריך לידה</div>
+        </div>
+        <div class="form-group">
+          <label for="phone"><span class="req">*</span><span class="i18n" data-he="מספר טלפון" data-ar="رقم الهاتف" data-en="Phone Number">מספר טלפון</span></label>
+          <input type="tel" id="phone" name="phone" inputmode="tel" placeholder="05X-XXXXXXX" required aria-required="true">
+          <div class="error-msg i18n" id="err_phone" data-he="נא להזין מספר טלפון תקין" data-ar="يرجى إدخال رقم هاتف صحيح" data-en="Please enter a valid phone number">נא להזין מספר טלפון תקין</div>
+        </div>
+      </div>
+
+      <div class="consent-row">
+        <input type="checkbox" id="consent" name="consent" required aria-required="true">
+        <label for="consent" class="i18n"
+          data-he="אני מאשר/ת קבלת פנייה מנציג שמש מימוש זכויות ומסכים/ה ל<a href='#'>תנאי השימוש</a> ו<a href='#'>מדיניות הפרטיות</a>."
+          data-ar="أوافق على تلقي اتصال من ممثل شمش وأقبل <a href='#'>شروط الاستخدام</a> و<a href='#'>سياسة الخصوصية</a>."
+          data-en="I consent to being contacted by a Shemesh representative and agree to the <a href='#'>Terms of Use</a> and <a href='#'>Privacy Policy</a>.">
+          אני מאשר/ת קבלת פנייה מנציג שמש מימוש זכויות ומסכים/ה ל<a href="#">תנאי השימוש</a> ו<a href="#">מדיניות הפרטיות</a>.
+        </label>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span class="i18n btn-text" data-he="שלח פרטים ←" data-ar="إرسال البيانات ←" data-en="Send Details →">שלח פרטים ←</span>
+      </button>
+    </form>
+
+    <div class="success-msg" id="successMsg" role="alert">
+      <div class="success-icon">🌟</div>
+      <div class="success-title i18n" data-he="תודה! קיבלנו את פרטיך" data-ar="شكراً! تلقينا بياناتك" data-en="Thank You! We've Received Your Details">תודה! קיבלנו את פרטיך</div>
+      <p class="success-text i18n" data-he="נציג מקצועי יצור איתך קשר בקרוב לבדיקת הזכאות שלך ✓" data-ar="سيتواصل معك أحد المختصين قريباً للتحقق من أهليتك ✓" data-en="A professional representative will contact you soon to check your eligibility ✓">נציג מקצועי יצור איתך קשר בקרוב לבדיקת הזכאות שלך ✓</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer role="contentinfo">
+  <img src="לוגו_שמש.jpg" alt="שמש מימוש זכויות" class="footer-logo" onerror="this.style.display='none'">
+
+  <div class="footer-social">
+    <a href="https://www.facebook.com/profile.php?id=61582736624394" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="i18n" data-he="שמש מימוש זכויות © 2026 | <a href='#'>תנאי שימוש</a> | <a href='#'>מדיניות פרטיות</a>" data-ar="شمش لتحقيق الحقوق © 2026 | <a href='#'>شروط الاستخدام</a> | <a href='#'>سياسة الخصوصية</a>" data-en="Shemesh Rights Realization © 2026 | <a href='#'>Terms of Use</a> | <a href='#'>Privacy Policy</a>">
+    שמש מימוש זכויות © 2026 | <a href="#">תנאי שימוש</a> | <a href="#">מדיניות פרטיות</a>
+  </div>
+  <div style="margin-top:8px; font-size:11px; opacity:0.5;" class="i18n" data-he="האתר מאובטח ומוגן | כל הפרטים נשמרים בצפנה מלאה" data-ar="الموقع آمن ومحمي | جميع البيانات مشفرة بالكامل" data-en="Site is secure and protected | All data is fully encrypted">האתר מאובטח ומוגן | כל הפרטים נשמרים בצפנה מלאה</div>
+</footer>
+
+<!-- ===== ACCESSIBILITY WIDGET ===== -->
+<button id="accessibility-btn" aria-label="תפריט נגישות" title="תפריט נגישות" onclick="toggleAcc()">♿</button>
+<div id="accessibility-panel" role="dialog" aria-label="אפשרויות נגישות">
+  <h3 class="i18n" data-he="הגדרות נגישות" data-ar="إعدادات إمكانية الوصول" data-en="Accessibility Settings">הגדרות נגישות</h3>
+  <button class="acc-btn" id="btn-large" onclick="setFontSize('large')" aria-pressed="false">🔡 <span class="i18n" data-he="הגדל טקסט" data-ar="تكبير النص" data-en="Larger Text">הגדל טקסט</span></button>
+  <button class="acc-btn" id="btn-xlarge" onclick="setFontSize('xlarge')" aria-pressed="false">🔠 <span class="i18n" data-he="טקסט גדול מאוד" data-ar="نص كبير جداً" data-en="Very Large Text">טקסט גדול מאוד</span></button>
+  <button class="acc-btn" id="btn-contrast" onclick="toggleContrast()" aria-pressed="false">🌗 <span class="i18n" data-he="ניגודיות גבוהה" data-ar="تباين عالٍ" data-en="High Contrast">ניגודיות גבוהה</span></button>
+  <button class="acc-btn" id="btn-noanim" onclick="toggleAnimations()" aria-pressed="false">🚫 <span class="i18n" data-he="עצור אנימציות" data-ar="إيقاف الرسوم المتحركة" data-en="Stop Animations">עצור אנימציות</span></button>
+  <button class="acc-btn" onclick="resetAcc()">↺ <span class="i18n" data-he="איפוס" data-ar="إعادة ضبط" data-en="Reset">איפוס</span></button>
+</div>
+
+<script>
+// ===== LANGUAGE =====
+let currentLang = 'he';
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.body.lang = lang;
+  document.body.dir = lang === 'en' ? 'ltr' : 'rtl';
+  document.querySelectorAll('.lang-btn').forEach((b,i) => {
+    b.classList.toggle('active', ['he','ar','en'][i] === lang);
+  });
+  document.querySelectorAll('.i18n').forEach(el => {
+    const val = el.getAttribute('data-' + lang);
+    if (val) el.innerHTML = val;
+  });
+  // Update form placeholder
+  document.getElementById('id_number').placeholder = lang === 'ar' ? '9 أرقام' : lang === 'en' ? '9 digits' : '9 ספרות';
+}
+
+// ===== ACCESSIBILITY =====
+function toggleAcc() {
+  document.getElementById('accessibility-panel').classList.toggle('open');
+}
+document.addEventListener('click', e => {
+  const panel = document.getElementById('accessibility-panel');
+  const btn = document.getElementById('accessibility-btn');
+  if (!panel.contains(e.target) && e.target !== btn) panel.classList.remove('open');
+});
+
+let fontState = 'normal';
+function setFontSize(size) {
+  document.body.classList.remove('large-text','xlarge-text');
+  if (fontState === size) { fontState = 'normal'; }
+  else { document.body.classList.add(size + '-text'); fontState = size; }
+  document.getElementById('btn-large').classList.toggle('active', fontState === 'large');
+  document.getElementById('btn-xlarge').classList.toggle('active', fontState === 'xlarge');
+}
+function toggleContrast() {
+  const on = document.body.classList.toggle('high-contrast');
+  document.getElementById('btn-contrast').classList.toggle('active', on);
+  document.getElementById('btn-contrast').setAttribute('aria-pressed', on);
+}
+function toggleAnimations() {
+  const on = document.body.classList.toggle('no-animations');
+  document.getElementById('btn-noanim').classList.toggle('active', on);
+}
+function resetAcc() {
+  document.body.classList.remove('large-text','xlarge-text','high-contrast','no-animations');
+  fontState = 'normal';
+  ['btn-large','btn-xlarge','btn-contrast','btn-noanim'].forEach(id => {
+    document.getElementById(id).classList.remove('active');
+    document.getElementById(id).setAttribute('aria-pressed','false');
+  });
+}
+
+// ===== SCROLL ANIMATIONS =====
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ===== FORM =====
+const WEBHOOK_URL = 'https://hook.eu2.make.com/rr3qj4ebelpvz7rpmkm1mied4h6mx29w';
+
+function validateIsraeliId(id) {
+  if (!/^\d{9}$/.test(id)) return false;
+  let sum = 0;
+  for (let i = 0; i < 9; i++) {
+    let d = Number(id[i]) * ((i % 2) + 1);
+    if (d > 9) d -= 9;
+    sum += d;
+  }
+  return sum % 10 === 0;
+}
+function validatePhone(p) { return /^0[5][0-9]-?\d{7}$/.test(p.replace(/\s/g,'')); }
+
+document.getElementById('leadForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  let valid = true;
+
+  const name = document.getElementById('full_name').value.trim();
+  const id   = document.getElementById('id_number').value.trim();
+  const dob  = document.getElementById('birth_date').value;
+  const phone= document.getElementById('phone').value.trim();
+  const consent = document.getElementById('consent').checked;
+
+  // Validate
+  ['full_name','id_number','birth_date','phone'].forEach(f => {
+    document.getElementById(f).classList.remove('error');
+  });
+  ['err_name','err_id','err_dob','err_phone'].forEach(id => {
+    document.getElementById(id).classList.remove('show');
+  });
+
+  if (!name || name.split(' ').length < 2) {
+    document.getElementById('full_name').classList.add('error');
+    document.getElementById('err_name').classList.add('show');
+    valid = false;
+  }
+  if (!validateIsraeliId(id)) {
+    document.getElementById('id_number').classList.add('error');
+    document.getElementById('err_id').classList.add('show');
+    valid = false;
+  }
+  if (!dob) {
+    document.getElementById('birth_date').classList.add('error');
+    document.getElementById('err_dob').classList.add('show');
+    valid = false;
+  }
+  if (!validatePhone(phone)) {
+    document.getElementById('phone').classList.add('error');
+    document.getElementById('err_phone').classList.add('show');
+    valid = false;
+  }
+  if (!consent) { alert(currentLang==='ar'?'يجب الموافقة على الشروط':currentLang==='en'?'Please accept the terms':'נא לאשר את תנאי השימוש'); valid = false; }
+  if (!valid) return;
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.querySelector('.btn-text').textContent = currentLang === 'ar' ? '...جارٍ الإرسال' : currentLang === 'en' ? 'Sending...' : '...שולח';
+
+  try {
+    await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
+      body: JSON.stringify({
+        full_name: name,
+        id_number: id,
+        birth_date: dob,
+        phone: phone,
+        language: currentLang,
+        utm_source: new URLSearchParams(window.location.search).get('utm_source') || 'direct'
+      })
+    });
+  } catch(err) { console.log('Webhook sent (no-cors)'); }
+
+  document.getElementById('leadForm').style.display = 'none';
+  document.getElementById('successMsg').classList.add('show');
+});
+</script>
+</body>
+</html>
