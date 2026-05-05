@@ -845,18 +845,18 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
   btn.querySelector('.btn-text').textContent = currentLang === 'ar' ? '...جارٍ الإرسال' : currentLang === 'en' ? 'Sending...' : '...שולח';
 
   try {
+    const formData = new URLSearchParams();
+    formData.append('full_name', name);
+    formData.append('id_number', id);
+    formData.append('birth_date', dob);
+    formData.append('phone', phone);
+    formData.append('language', currentLang);
+    formData.append('utm_source', new URLSearchParams(window.location.search).get('utm_source') || 'direct');
+
     await fetch(WEBHOOK_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
       mode: 'no-cors',
-      body: JSON.stringify({
-        full_name: name,
-        id_number: id,
-        birth_date: dob,
-        phone: phone,
-        language: currentLang,
-        utm_source: new URLSearchParams(window.location.search).get('utm_source') || 'direct'
-      })
+      body: formData
     });
   } catch(err) { console.log('Webhook sent (no-cors)'); }
 
