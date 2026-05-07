@@ -786,7 +786,16 @@ body[lang="en"] .acc-action { text-align: left; }
   .hero-sun-wrap { justify-content: center; margin-top: var(--space-4); }
   .hero-sun { margin-right: 0; margin-left: 0; width: 60vw; max-width: 320px; }
 
-  .ticker-eyebrow { display: none; }
+  /* Keep the eyebrow visible on mobile but make it a touch smaller and pull
+     it slightly off the edge so it sits comfortably above the moving logos. */
+  .ticker-eyebrow {
+    top: 2px;
+    right: var(--space-3);
+    font-size: calc(10px * var(--font-scale));
+    letter-spacing: 0.06em;
+    padding: 1px var(--space-2);
+  }
+  body[lang="en"] .ticker-eyebrow { right: auto; left: var(--space-3); }
 
   section.content { padding: calc(var(--space-5) + var(--curtain)) var(--space-4) var(--space-5); }
 
