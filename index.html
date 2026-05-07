@@ -286,14 +286,16 @@ body[lang="en"] .hero-cta.is-going .arrow { transform: translateX(12px); }
   .form-card.is-arriving, .form-card.is-success .success-burst { animation: none; }
 }
 
-/* ===== PENSION TICKER — flat strip =====
-   The container is forced direction: ltr so that the wider-than-viewport
-   track positions its LEFT edge at the viewport's left edge and extends
-   the duplicate copy off-screen to the RIGHT — which is what allows
-   translateX(-50%) to cycle seamlessly. (Under RTL parent, the track
-   would align to the right edge with duplicates extending left off-screen
-   and the marquee would visibly run out.) Hebrew text inside is forced
-   back to direction: rtl on the children that contain it. */
+/* ===== PENSION TICKER — draggable marquee =====
+   The container is forced direction: ltr so the wider-than-viewport track
+   positions its LEFT edge at the viewport's left edge with the duplicate
+   copy extending off-screen to the RIGHT, which is what allows the
+   marquee to cycle seamlessly under an RTL parent.
+
+   The transform animation is now JS-driven (requestAnimationFrame, see
+   bottom of <script>) so the user can grab and drag the ticker left or
+   right with mouse OR touch. Auto-scroll resumes ~1.5s after release.
+   Items remain touchable but NOT clickable — no <a href>, no nav. */
 .ticker {
   direction: ltr;
   background: var(--bg-paper-deep);
@@ -303,6 +305,16 @@ body[lang="en"] .hero-cta.is-going .arrow { transform: translateX(12px); }
   position: relative;
   z-index: 2;
   padding: var(--space-4) 0;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: pan-y;        /* allow vertical page scroll, claim horizontal drag */
+}
+.ticker.is-dragging { cursor: grabbing; }
+.ticker img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none;       /* prevent image-drag from hijacking the marquee drag */
 }
 .ticker-eyebrow {
   direction: rtl;
@@ -328,11 +340,9 @@ body[lang="ar"] .ticker-eyebrow { font-family: 'Noto Kufi Arabic', sans-serif; }
   align-items: center;
   gap: 0;
   width: max-content;
-  animation: marquee 60s linear infinite;
   will-change: transform;
+  /* transform is set inline by JS — no CSS animation here. */
 }
-.ticker:hover .ticker-track { animation-play-state: paused; }
-.ticker-track.touched { animation-play-state: paused; }
 
 .ticker-item {
   font-family: 'Karantina', sans-serif;
@@ -371,12 +381,9 @@ body[lang="ar"] .ticker-eyebrow { font-family: 'Noto Kufi Arabic', sans-serif; }
 }
 .ticker-item.has-logo:hover img { opacity: 1; }
 
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
 @media (prefers-reduced-motion: reduce) {
-  .ticker-track { animation: none; flex-wrap: wrap; padding: 0 var(--space-5); }
+  .ticker-track { flex-wrap: wrap; padding: 0 var(--space-5); transform: none !important; }
+  .ticker { cursor: default; }
 }
 
 /* ===== SECTIONS ===== */
@@ -801,7 +808,6 @@ body[lang="en"] .acc-action { text-align: left; }
      viewport and the marquee feels populated rather than empty. */
   .ticker-item.has-logo { padding: 0 var(--space-2); }
   .ticker-item.has-logo img { height: 32px; max-width: 110px; }
-  .ticker-track { animation-duration: 45s; }
 
   .form-row { grid-template-columns: 1fr; }
   .form-card { padding: var(--space-4) var(--space-3); }
@@ -1272,16 +1278,98 @@ function resetAcc() {
   });
 }
 
-/* ===== PENSION TICKER — touch-pause/resume (touchable, NOT clickable) ===== */
+/* ===== PENSION TICKER — draggable marquee =====
+   JS-driven so the user can grab and scrub left/right with mouse OR touch.
+   Auto-scrolls leftward at ~30px/sec when idle, pauses while dragging,
+   resumes ~1.5s after release. Touchable but NOT clickable — items have
+   no <a href>, so taps go nowhere; only drag motion has an effect. */
 (function(){
   const track = document.getElementById('tickerTrack');
   if (!track) return;
   const wrap = track.parentElement;
-  const pause = () => track.classList.add('touched');
-  const resume = () => track.classList.remove('touched');
-  wrap.addEventListener('touchstart', pause, { passive: true });
-  wrap.addEventListener('touchend',   resume, { passive: true });
-  wrap.addEventListener('touchcancel', resume, { passive: true });
+
+  let position   = 0;          // current X offset in pixels (always <= 0)
+  let cycleWidth = 0;          // width of one copy = scrollWidth / 2
+  let dragging   = false;
+  let hoverPause = false;
+  let lastX      = 0;
+  let resumeAt   = 0;
+  const velocity = 0.5;        // px per frame for auto-scroll (~30px/sec at 60fps)
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function measure() { cycleWidth = track.scrollWidth / 2; }
+
+  function normalize() {
+    if (cycleWidth <= 0) return;
+    while (position > 0)            position -= cycleWidth;
+    while (position < -cycleWidth)  position += cycleWidth;
+  }
+
+  function apply() { track.style.transform = 'translateX(' + position + 'px)'; }
+
+  function getX(e) { return e.touches ? e.touches[0].clientX : e.clientX; }
+
+  function startDrag(e) {
+    dragging = true;
+    lastX = getX(e);
+    wrap.classList.add('is-dragging');
+  }
+
+  function onDrag(e) {
+    if (!dragging) return;
+    if (e.cancelable && e.touches) e.preventDefault();
+    const x = getX(e);
+    position += x - lastX;
+    lastX = x;
+    normalize();
+    apply();
+  }
+
+  function endDrag() {
+    if (!dragging) return;
+    dragging = false;
+    wrap.classList.remove('is-dragging');
+    resumeAt = performance.now() + 1500;   // ~1.5s pause before auto-scroll resumes
+  }
+
+  function tick(now) {
+    if (!dragging && !hoverPause && !reduceMotion && (!resumeAt || now >= resumeAt)) {
+      position -= velocity;
+      normalize();
+      apply();
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // Mouse drag
+  wrap.addEventListener('mousedown', startDrag);
+  window.addEventListener('mousemove', onDrag);
+  window.addEventListener('mouseup', endDrag);
+
+  // Touch drag (passive: false on touchmove so preventDefault can stop page scroll)
+  wrap.addEventListener('touchstart',  startDrag, { passive: true  });
+  window.addEventListener('touchmove', onDrag,    { passive: false });
+  window.addEventListener('touchend',   endDrag,  { passive: true  });
+  window.addEventListener('touchcancel',endDrag,  { passive: true  });
+
+  // Hover pauses on PC so a user can read a logo without it sliding away
+  wrap.addEventListener('mouseenter', () => { hoverPause = true;  });
+  wrap.addEventListener('mouseleave', () => { hoverPause = false; });
+
+  window.addEventListener('resize', measure);
+
+  function start() {
+    measure();
+    if (cycleWidth === 0) {
+      // Images may not be loaded yet; remeasure shortly
+      setTimeout(start, 200);
+      return;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start);
 })();
 
 /* ===== HERO CTA — animated journey to form ===== */
