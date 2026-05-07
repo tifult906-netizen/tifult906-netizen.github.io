@@ -308,7 +308,12 @@ body[lang="en"] .hero-cta.is-going .arrow { transform: translateX(12px); }
   cursor: grab;
   -webkit-user-select: none;
   user-select: none;
-  touch-action: pan-y;        /* allow vertical page scroll, claim horizontal drag */
+  /* touch-action: none claims ALL gestures inside the ticker for our drag
+     handler. Without this, iOS Safari may decide a touch-and-move is a
+     vertical scroll (especially with even a slight vertical component) and
+     stop firing pointermove events, killing the drag. The ticker is a thin
+     strip — users can still scroll the page by touching above or below it. */
+  touch-action: none;
 }
 .ticker.is-dragging { cursor: grabbing; }
 .ticker img {
@@ -1278,23 +1283,35 @@ function resetAcc() {
   });
 }
 
-/* ===== PENSION TICKER — draggable marquee =====
-   JS-driven so the user can grab and scrub left/right with mouse OR touch.
-   Auto-scrolls leftward at ~30px/sec when idle, pauses while dragging,
-   resumes ~1.5s after release. Touchable but NOT clickable — items have
-   no <a href>, so taps go nowhere; only drag motion has an effect. */
+/* ===== PENSION TICKER — draggable marquee with iOS-style inertia =====
+   - Pointer Events unify mouse + touch + pen, more reliable than touchstart
+     handlers on iOS Safari.
+   - touch-action: none on .ticker (in CSS) ensures the browser doesn't claim
+     any gesture before our handler sees it.
+   - Auto-scrolls leftward at ~30 px/s when idle.
+   - On drag: position follows the pointer 1:1.
+   - On release: applies the user's flick velocity with friction (0.94/frame)
+     until it decays below threshold — same shape as iOS UIScrollView momentum.
+   - 1.5s grace period after motion settles before auto-scroll resumes.
+   - Touchable but NOT clickable — items have no <a href>, so taps do nothing. */
 (function(){
   const track = document.getElementById('tickerTrack');
   if (!track) return;
   const wrap = track.parentElement;
 
-  let position   = 0;          // current X offset in pixels (always <= 0)
-  let cycleWidth = 0;          // width of one copy = scrollWidth / 2
-  let dragging   = false;
-  let hoverPause = false;
-  let lastX      = 0;
-  let resumeAt   = 0;
-  const velocity = 0.5;        // px per frame for auto-scroll (~30px/sec at 60fps)
+  let position    = 0;
+  let cycleWidth  = 0;
+  let dragging    = false;
+  let activeId    = null;
+  let lastX       = 0;
+  let inertia     = 0;        // px per frame remaining from the user's flick
+  let hoverPause  = false;
+  let resumeAt    = 0;
+  const samples   = [];       // {t, pos} ring for velocity estimation
+  const SAMPLE_WINDOW_MS = 100;
+  const AUTO_VEL  = 0.5;      // px/frame ambient drift (~30 px/s at 60fps)
+  const FRICTION  = 0.94;     // per-frame velocity decay during momentum
+  const STOP_VEL  = 0.4;      // px/frame threshold below which momentum stops
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function measure() { cycleWidth = track.scrollWidth / 2; }
@@ -1307,52 +1324,80 @@ function resetAcc() {
 
   function apply() { track.style.transform = 'translateX(' + position + 'px)'; }
 
-  function getX(e) { return e.touches ? e.touches[0].clientX : e.clientX; }
+  function recordSample(now) {
+    samples.push({ t: now, pos: position });
+    while (samples.length > 0 && now - samples[0].t > SAMPLE_WINDOW_MS) samples.shift();
+  }
 
-  function startDrag(e) {
+  function flickVelocity() {
+    if (samples.length < 2) return 0;
+    const a = samples[0];
+    const b = samples[samples.length - 1];
+    const dt = b.t - a.t;
+    if (dt <= 0) return 0;
+    return ((b.pos - a.pos) / dt) * 16.6667;   // px/ms → px/frame at 60fps
+  }
+
+  function pdown(e) {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
     dragging = true;
-    lastX = getX(e);
+    activeId = e.pointerId;
+    lastX = e.clientX;
+    inertia = 0;
+    samples.length = 0;
+    recordSample(performance.now());
+    try { wrap.setPointerCapture(e.pointerId); } catch(_) {}
     wrap.classList.add('is-dragging');
   }
 
-  function onDrag(e) {
-    if (!dragging) return;
-    if (e.cancelable && e.touches) e.preventDefault();
-    const x = getX(e);
-    position += x - lastX;
-    lastX = x;
+  function pmove(e) {
+    if (!dragging || e.pointerId !== activeId) return;
+    position += e.clientX - lastX;
+    lastX = e.clientX;
     normalize();
     apply();
+    recordSample(performance.now());
   }
 
-  function endDrag() {
-    if (!dragging) return;
+  function pup(e) {
+    if (!dragging || (activeId !== null && e.pointerId !== activeId)) return;
     dragging = false;
+    activeId = null;
+    try { wrap.releasePointerCapture(e.pointerId); } catch(_) {}
     wrap.classList.remove('is-dragging');
-    resumeAt = performance.now() + 1500;   // ~1.5s pause before auto-scroll resumes
+    inertia = flickVelocity();
+    samples.length = 0;
   }
 
   function tick(now) {
-    if (!dragging && !hoverPause && !reduceMotion && (!resumeAt || now >= resumeAt)) {
-      position -= velocity;
+    if (dragging) {
+      // Held — do nothing in the loop, pmove is driving position
+    } else if (Math.abs(inertia) > STOP_VEL) {
+      // Flick momentum decays toward zero
+      position += inertia;
+      inertia *= FRICTION;
       normalize();
       apply();
+      resumeAt = now + 1500;             // keep auto-scroll suppressed while momentum runs
+    } else {
+      inertia = 0;
+      if (!hoverPause && !reduceMotion && (resumeAt === 0 || now >= resumeAt)) {
+        position -= AUTO_VEL;
+        normalize();
+        apply();
+      }
     }
     requestAnimationFrame(tick);
   }
 
-  // Mouse drag
-  wrap.addEventListener('mousedown', startDrag);
-  window.addEventListener('mousemove', onDrag);
-  window.addEventListener('mouseup', endDrag);
+  // Pointer events — unified mouse / touch / pen, robust on iOS
+  wrap.addEventListener('pointerdown', pdown);
+  wrap.addEventListener('pointermove', pmove);
+  wrap.addEventListener('pointerup', pup);
+  wrap.addEventListener('pointercancel', pup);
+  wrap.addEventListener('lostpointercapture', pup);
 
-  // Touch drag (passive: false on touchmove so preventDefault can stop page scroll)
-  wrap.addEventListener('touchstart',  startDrag, { passive: true  });
-  window.addEventListener('touchmove', onDrag,    { passive: false });
-  window.addEventListener('touchend',   endDrag,  { passive: true  });
-  window.addEventListener('touchcancel',endDrag,  { passive: true  });
-
-  // Hover pauses on PC so a user can read a logo without it sliding away
+  // Mouse hover pauses the ambient drift so the user can read a logo
   wrap.addEventListener('mouseenter', () => { hoverPause = true;  });
   wrap.addEventListener('mouseleave', () => { hoverPause = false; });
 
@@ -1360,8 +1405,7 @@ function resetAcc() {
 
   function start() {
     measure();
-    if (cycleWidth === 0) {
-      // Images may not be loaded yet; remeasure shortly
+    if (cycleWidth === 0) {            // images probably not loaded yet
       setTimeout(start, 200);
       return;
     }
