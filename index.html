@@ -3,9 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>שמש מימוש זכויות — משיכת חסכונות פנסיוניים</title>
-<link rel="canonical" href="https://tifult906-netizen.github.io">
-<meta name="description" content="שמש מימוש זכויות — שירות מקצועי ואישי למשיכת חסכונות פנסיוניים. בצורה חוקית, מהירה ובלי בירוקרטיה מיותרת.">
+<!-- CSP: locks resource origins to what the page actually uses. 'unsafe-inline' is
+     required by the inline <style>/<script>/onclick architecture (no-build constraint);
+     the real protection here is connect-src (no exfiltration targets), img/font/style
+     origins, object-src none, and base-uri self. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://hook.eu2.make.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<title>איתור כספים אבודים והר הכסף | שמש מימוש זכויות</title>
+<link rel="canonical" href="https://tifult906-netizen.github.io/">
+<meta name="description" content="שמש מאתרת בשבילך כספים אבודים בהר הכסף, קרנות פנסיה וביטוחים ששכחת. בדיקת זכאות חינם, בלי עלות מראש. משלמים רק אם קיבלתם כסף.">
+
+<!-- Social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="שמש מימוש זכויות">
+<meta property="og:title" content="איתור כספים אבודים והר הכסף | שמש מימוש זכויות">
+<meta property="og:description" content="מאתרים בשבילך כספים אבודים בהר הכסף, קרנות פנסיה וביטוחים ששכחת. בדיקת זכאות חינם, בלי עלות מראש.">
+<meta property="og:image" content="https://tifult906-netizen.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://tifult906-netizen.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Icons -->
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "שמש מימוש זכויות",
+  "alternateName": "Shemesh Rights Realization",
+  "description": "איתור כספים אבודים בהר הכסף, קרנות פנסיה וביטוחים. בדיקת זכאות חינם, תשלום על בסיס הצלחה בלבד.",
+  "url": "https://tifult906-netizen.github.io/",
+  "areaServed": {"@type": "Country", "name": "Israel"},
+  "knowsLanguage": ["he", "ar", "en"],
+  "sameAs": ["https://www.facebook.com/profile.php?id=61582736624394"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "כמה זה עולה?", "acceptedAnswer": {"@type": "Answer", "text": "בדיקת הזכאות חינם לחלוטין. אנחנו עובדים על בסיס הצלחה בלבד: עמלה נגבית רק מתוך כספים שמומשו בפועל עבורך. לא נמצא כסף? לא שילמת שקל."}},
+    {"@type": "Question", "name": "האם איתור כספים אבודים חוקי?", "acceptedAnswer": {"@type": "Answer", "text": "לגמרי. אנחנו פועלים מול הגופים המוסדיים ומול מאגר הר הכסף הממשלתי, בהתאם לחוק ורק באישור הלקוח. כל פעולה שמחייבת בעל רישיון מתבצעת על ידי בעלי רישיון מתאימים."}},
+    {"@type": "Question", "name": "למה צריך תעודת זהות לאיתור כספים?", "acceptedAnswer": {"@type": "Answer", "text": "הגופים הפנסיוניים ומאגר הר הכסף מזהים חשבונות לפי מספר תעודת זהות, ובלעדיו אי אפשר לאתר כספים. תעודת הזהות משמשת רק לבדיקה, לא מועברת לאף גורם אחר, ומוגנת לפי חוק הגנת הפרטיות."}},
+    {"@type": "Question", "name": "כמה זמן לוקח תהליך איתור הכספים?", "acceptedAnswer": {"@type": "Answer", "text": "נציג חוזר תוך 24 שעות, והבדיקה הראשונית אורכת ימים בודדים. שחרור הכספים בפועל תלוי בגופים המחזיקים בהם, בדרך כלל בין שבועות לחודשים בודדים."}},
+    {"@type": "Question", "name": "מה קורה אם לא נמצא כסף?", "acceptedAnswer": {"@type": "Answer", "text": "לא קורה כלום. הבדיקה חינם, ואם אין כסף לא משלמים. אצל רוב מי שעבד ביותר ממקום עבודה אחד נמצא לפחות חשבון אחד לא פעיל."}},
+    {"@type": "Question", "name": "אילו סוגי כספים אפשר לאתר בהר הכסף?", "acceptedAnswer": {"@type": "Answer", "text": "קרנות פנסיה ישנות, קופות גמל, קרנות השתלמות, פוליסות ביטוח חיים ומנהלים, כספי פיצויים וחשבונות לא פעילים שמופיעים בהר הכסף."}}
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&family=Assistant:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
@@ -22,6 +72,11 @@
   --ember:         #C4501C;
   --success:       #3F7A3F;
   --error:         #A8261A;
+
+  /* WCAG AA text-safe variants (>= 4.5:1 on --bg-paper).
+     --sun-deep / --ember stay for decorative SVG fills only. */
+  --sun-text:      #8A5E06;  /* 4.75:1 on paper — H1 accent, step numerals */
+  --ember-btn:     #A33D12;  /* 5.41:1 under paper text — CTA / submit backgrounds */
 
   /* Spacing scale — locked 4px exponential */
   --space-1:  4px;
@@ -48,6 +103,8 @@ body.high-contrast {
   --sun:           #FFD700;
   --sun-deep:      #B38600;
   --ember:         #B22222;
+  --sun-text:      #6B5200;
+  --ember-btn:     #8B0000;
 }
 body.large-text  { --font-scale: 1.25; }
 body.xlarge-text { --font-scale: 1.5; }
@@ -59,6 +116,9 @@ body.no-animations *, body.no-animations *::before, body.no-animations *::after 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 html, body { background: var(--bg-paper); }
+/* Clip horizontal overflow at the root — body alone can't stop the success
+   burst (or any future oversized element) from widening the document. */
+html { overflow-x: clip; }
 
 body {
   font-family: 'Assistant', sans-serif;
@@ -94,6 +154,27 @@ body.high-contrast::before { display: none; }
 }
 body[lang="ar"] .k { font-family: 'Noto Kufi Arabic', sans-serif; font-weight: 700; }
 a { color: inherit; }
+
+/* Skip link — first focusable element, visible only on keyboard focus (IS 5568 / WCAG 2.4.1) */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  inset-inline-start: var(--space-3);
+  z-index: 200;
+  background: var(--ink);
+  color: var(--bg-paper);
+  padding: var(--space-2) var(--space-3);
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--bg-paper);
+}
+.skip-link:focus { top: var(--space-2); }
+
+/* Site-wide visible keyboard focus (IS 5568 / WCAG 2.4.7) */
+a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--ember);
+  outline-offset: 2px;
+}
 
 /* ===== LANG BAR ===== */
 .lang-bar {
@@ -224,7 +305,7 @@ body[lang="en"] .hero-content { text-align: left; }
   margin-bottom: var(--space-4);
 }
 body[lang="ar"] .hero-title { font-family: 'Noto Kufi Arabic', sans-serif; font-weight: 700; }
-.hero-title .accent { color: var(--sun-deep); }
+.hero-title .accent { color: var(--sun-text); }
 
 .hero-sub {
   font-size: calc(19px * var(--font-scale));
@@ -243,7 +324,7 @@ body[lang="en"] .hero-sub { margin-right: auto; margin-left: 0; }
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  background: var(--ember);
+  background: var(--ember-btn);
   color: var(--bg-paper);
   font-family: 'Assistant', sans-serif;
   font-weight: 700;
@@ -391,6 +472,25 @@ body[lang="ar"] .ticker-eyebrow { font-family: 'Noto Kufi Arabic', sans-serif; }
   .ticker { cursor: default; }
 }
 
+/* ===== STAT BAND ===== */
+.stat-band {
+  background: var(--sun);
+  border-top: 2px solid var(--ink);
+  padding: var(--space-3) var(--space-5);
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+.stat-band-text {
+  font-family: 'Karantina', sans-serif;
+  font-weight: 700;
+  font-size: clamp(22px, 3.2vw, 36px);
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0;
+}
+body[lang="ar"] .stat-band-text { font-family: 'Noto Kufi Arabic', sans-serif; }
+
 /* ===== SECTIONS ===== */
 section.content {
   padding: calc(var(--space-6) + var(--curtain)) var(--space-5) var(--space-6);
@@ -440,7 +540,7 @@ body[lang="en"] .step:nth-child(3) { padding-left: var(--space-3); padding-right
   font-weight: 700;
   font-size: calc(140px * var(--font-scale));
   line-height: 0.9;
-  color: var(--sun-deep);
+  color: var(--sun-text);
   letter-spacing: -0.02em;
 }
 .step-illust { display: flex; justify-content: center; align-items: center; }
@@ -516,6 +616,54 @@ body[lang="en"] .why-fragment { left: auto; right: var(--space-3); }
 }
 body[lang="en"] .why-card.lead .why-fragment { left: auto; right: var(--space-4); }
 
+/* ===== FAQ ===== */
+.faq-list { max-width: 900px; margin-right: auto; }
+body[lang="en"] .faq-list { margin-right: 0; margin-left: auto; }
+.faq-item {
+  border: 2px solid var(--ink);
+  background: var(--bg-paper);
+  margin-bottom: var(--space-2);
+}
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+  font-family: 'Karantina', sans-serif;
+  font-weight: 700;
+  font-size: calc(26px * var(--font-scale));
+  line-height: 1.1;
+  color: var(--ink);
+  list-style: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+body[lang="ar"] .faq-q { font-family: 'Noto Kufi Arabic', sans-serif; }
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q:hover, .faq-q:focus-visible { background: var(--sun); }
+.faq-marker {
+  font-family: 'Assistant', sans-serif;
+  font-weight: 700;
+  font-size: calc(28px * var(--font-scale));
+  line-height: 1;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+/* The + marker rotates 45deg when open, reading as a close (x) affordance */
+details[open] > .faq-q .faq-marker { transform: rotate(45deg); }
+.faq-a {
+  padding: 0 var(--space-4) var(--space-4);
+  font-size: calc(16px * var(--font-scale));
+  line-height: 1.6;
+  color: var(--ink-muted);
+  max-width: 720px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-marker { transition: none; }
+}
+
 /* ===== FORM ===== */
 .form-section .section-title { text-align: center; }
 .form-card {
@@ -526,6 +674,9 @@ body[lang="en"] .why-card.lead .why-fragment { left: auto; right: var(--space-4)
   margin: 0 auto;
   position: relative;
 }
+/* Clip the success burst to the card so it can never push the page wider.
+   Applied only in the success state so nothing else is ever clipped. */
+.form-card.is-success { overflow: hidden; }
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -579,6 +730,35 @@ body[lang="en"] .field input[type="date"] { text-align: left; }
 }
 .error-msg.show { display: block; }
 
+/* Persistent field hint — doubles as the Amendment 13 Section 11 at-form notice */
+.field-hint {
+  font-size: calc(12px * var(--font-scale));
+  color: var(--ink-muted);
+  margin-top: var(--space-1);
+  line-height: 1.4;
+}
+.field-hint a { color: var(--ink); text-decoration: underline; }
+
+/* Honeypot — visually removed, unreachable by keyboard, invisible to screen readers */
+.hp-wrap {
+  position: absolute;
+  inset-inline-start: -9999px;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* No-win-no-fee trust line above the submit button */
+.submit-trust {
+  text-align: center;
+  font-weight: 700;
+  font-size: calc(15px * var(--font-scale));
+  color: var(--ink);
+  margin-bottom: var(--space-2);
+}
+
 .consent {
   display: flex;
   gap: var(--space-2);
@@ -600,7 +780,7 @@ body[lang="en"] .field input[type="date"] { text-align: left; }
 .submit-btn {
   width: 100%;
   padding: 18px;
-  background: var(--ember);
+  background: var(--ember-btn);
   color: var(--bg-paper);
   border: 2px solid var(--ink);
   font-family: 'Karantina', sans-serif;
@@ -631,9 +811,9 @@ body[lang="ar"] .submit-btn { font-family: 'Noto Kufi Arabic', sans-serif; }
 }
 @keyframes burstReveal {
   0%   { opacity: 0;   transform: translate(-50%, -50%) scale(0.3) rotate(0deg); }
-  15%  { opacity: 1;   transform: translate(-50%, -50%) scale(0.9) rotate(8deg); }
-  35%  { opacity: 1;   transform: translate(-50%, -50%) scale(1.2) rotate(14deg); }
-  100% { opacity: 0;   transform: translate(-50%, -50%) scale(2.4) rotate(20deg); }
+  15%  { opacity: 1;   transform: translate(-50%, -50%) scale(0.8) rotate(8deg); }
+  35%  { opacity: 1;   transform: translate(-50%, -50%) scale(1.0) rotate(14deg); }
+  100% { opacity: 0;   transform: translate(-50%, -50%) scale(1.6) rotate(20deg); }
 }
 
 /* Success message — fades in after the burst peaks */
@@ -652,12 +832,71 @@ body[lang="ar"] .submit-btn { font-family: 'Noto Kufi Arabic', sans-serif; }
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.success-mark {
-  width: 80px;
-  height: 80px;
+/* Sunrise reveal — the sun rises from the bottom edge of its stage,
+   then the timeline items stagger in. The user's submission makes the sun rise. */
+.sunrise-stage {
+  overflow: hidden;
+  max-width: 300px;
   margin: 0 auto var(--space-3);
-  display: block;
 }
+.sunrise {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: translateY(100%);
+  animation: sunRise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+@keyframes sunRise {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+/* What-happens-now timeline */
+.success-timeline {
+  list-style: none;
+  max-width: 400px;
+  margin: 0 auto var(--space-3);
+  text-align: right;
+  padding: 0;
+}
+body[lang="en"] .success-timeline { text-align: left; }
+.success-timeline li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  font-size: calc(16px * var(--font-scale));
+  color: var(--ink);
+  opacity: 0;
+  animation: tlIn 0.4s ease-out forwards;
+}
+.success-timeline li:nth-child(1) { animation-delay: 0.7s; }
+.success-timeline li:nth-child(2) { animation-delay: 0.85s; }
+.success-timeline li:nth-child(3) { animation-delay: 1.0s; }
+@keyframes tlIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.tl-marker {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--bg-paper);
+}
+.success-timeline li.tl-done .tl-marker { background: var(--sun); }
+.success-timeline li.tl-done { font-weight: 700; }
+
+/* Both reduction paths (OS preference + the site's own a11y widget) must land
+   on the final visible state, otherwise the animation-from states stick. */
+@media (prefers-reduced-motion: reduce) {
+  .sunrise { animation: none; transform: none; }
+  .success-timeline li { animation: none; opacity: 1; }
+}
+body.no-animations .sunrise { transform: none; }
+body.no-animations .success-timeline li { opacity: 1; }
+
 .success-title {
   font-family: 'Karantina', sans-serif;
   font-weight: 700;
@@ -666,6 +905,9 @@ body[lang="ar"] .submit-btn { font-family: 'Noto Kufi Arabic', sans-serif; }
   margin-bottom: var(--space-2);
   line-height: 1;
 }
+/* The title receives programmatic focus (screen-reader announcement) but is not
+   keyboard-reachable (tabindex=-1), so no visible focus ring is required or wanted. */
+.success-title:focus, .success-title:focus-visible { outline: none; }
 body[lang="ar"] .success-title { font-family: 'Noto Kufi Arabic', sans-serif; font-weight: 700; }
 .success-text { font-size: calc(16px * var(--font-scale)); color: var(--ink-muted); }
 
@@ -776,15 +1018,21 @@ body[lang="en"] .acc-action { text-align: left; }
 
   header {
     grid-template-columns: 1fr;
-    padding: calc(var(--space-6) + var(--space-4)) var(--space-4) var(--space-5);
+    padding: calc(var(--space-6) + var(--space-2)) var(--space-4) var(--space-4);
     min-height: auto;
+    gap: var(--space-4);
   }
-  .hero-content { text-align: right; }
+  /* Mobile: message FIRST, illustration after the CTA.
+     Desktop source order is sun-wrap then content (for the RTL grid);
+     on a single column we flip with grid-item order so the headline + CTA
+     land inside the first viewport. */
+  .hero-content { text-align: right; order: 1; }
   body[lang="en"] .hero-content { text-align: left; }
-  .hero-sub { margin-right: auto; margin-left: 0; }
+  .hero-sub { margin-right: auto; margin-left: 0; margin-bottom: var(--space-4); }
   body[lang="en"] .hero-sub { margin-right: 0; margin-left: auto; }
-  .hero-sun-wrap { justify-content: center; margin-top: var(--space-4); }
-  .hero-sun { margin-right: 0; margin-left: 0; width: 60vw; max-width: 320px; }
+  .hero-sun-wrap { justify-content: center; margin-top: 0; order: 2; }
+  .hero-sun { margin-right: 0; margin-left: 0; width: 45vw; max-width: 220px; }
+  .hero-title { font-size: clamp(48px, 15vw, 80px); }
 
   /* Keep the eyebrow visible on mobile but make it a touch smaller and pull
      it slightly off the edge so it sits comfortably above the moving logos. */
@@ -823,6 +1071,9 @@ body[lang="en"] .acc-action { text-align: left; }
   .ticker-item.has-logo { padding: 0 var(--space-2); }
   .ticker-item.has-logo img { height: 32px; max-width: 110px; }
 
+  .faq-q { font-size: calc(20px * var(--font-scale)); padding: var(--space-3); }
+  .faq-a { padding: 0 var(--space-3) var(--space-3); }
+
   .form-row { grid-template-columns: 1fr; }
   .form-card { padding: var(--space-4) var(--space-3); }
 
@@ -832,6 +1083,8 @@ body[lang="en"] .acc-action { text-align: left; }
 </style>
 </head>
 <body>
+
+<a href="#main-content" class="skip-link i18n" data-he="דלג לתוכן הראשי" data-ar="تخطّ إلى المحتوى الرئيسي" data-en="Skip to main content">דלג לתוכן הראשי</a>
 
 <!-- ===== LANG BAR ===== -->
 <div class="lang-bar" role="navigation" aria-label="Language selector">
@@ -844,7 +1097,7 @@ body[lang="en"] .acc-action { text-align: left; }
 <header role="banner">
 
   <!-- Shemesh logo: top-left absolute -->
-  <a href="#" class="shemesh-logo" aria-label="שמש מימוש זכויות — דף הבית">
+  <a href="./" class="shemesh-logo" aria-label="שמש מימוש זכויות, דף הבית">
     <svg class="mark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="6"/>
       <g stroke="currentColor" stroke-width="4" stroke-linecap="round">
@@ -894,8 +1147,8 @@ body[lang="en"] .acc-action { text-align: left; }
   </div>
 
   <!-- Content: visual LEFT (column 2 in source order under RTL); text-aligned right -->
-  <div class="hero-content">
-    <div class="hero-eyebrow i18n" data-he="ייעוץ ראשוני ללא עלות" data-ar="استشارة أولية مجانية" data-en="Free Initial Consultation">ייעוץ ראשוני ללא עלות</div>
+  <div class="hero-content" id="main-content" tabindex="-1">
+    <div class="hero-eyebrow i18n" data-he="איתור כספים אבודים ומימוש זכויות" data-ar="تحديد الأموال المفقودة وتحقيق الحقوق" data-en="Lost Funds Location &amp; Rights Realization">איתור כספים אבודים ומימוש זכויות</div>
     <h1 class="hero-title k i18n"
       data-he="<span class='accent'>כסף שמגיע לך</span><br>כבר מחכה לך"
       data-ar="<span class='accent'>أموالك</span><br>في انتظارك"
@@ -903,17 +1156,32 @@ body[lang="en"] .acc-action { text-align: left; }
       <span class="accent">כסף שמגיע לך</span><br>כבר מחכה לך
     </h1>
     <p class="hero-sub i18n"
-      data-he="אנחנו עוזרים לך למשוך את חסכונות הפנסיה שלך — בצורה חוקית, מהירה ובלי בירוקרטיה מיותרת."
-      data-ar="نساعدك على استرداد مدخرات التقاعد الخاصة بك — بشكل قانوني وسريع وبدون تعقيدات."
-      data-en="We help you access your pension savings — legally, quickly, and without unnecessary bureaucracy.">
-      אנחנו עוזרים לך למשוך את חסכונות הפנסיה שלך — בצורה חוקית, מהירה ובלי בירוקרטיה מיותרת.
+      data-he="פנסיה ישנה, כספים אבודים בהר הכסף, ביטוחים ששכחת. אנחנו מאתרים ומשחררים הכול בשבילך."
+      data-ar="معاشات قديمة، أموال منسية، تأمينات لم تعد تتذكرها. نحن نحدد مكانها ونحررها من أجلك."
+      data-en="Old pensions, lost funds in Har HaKesef, forgotten insurance. We locate and release all of it for you.">
+      פנסיה ישנה, כספים אבודים בהר הכסף, ביטוחים ששכחת. אנחנו מאתרים ומשחררים הכול בשבילך.
     </p>
     <a href="#form" class="hero-cta" id="heroCta">
-      <span class="cta-text i18n" data-he="בדוק את זכאותך עכשיו" data-ar="تحقق من أهليتك الآن" data-en="Check Your Eligibility Now">בדוק את זכאותך עכשיו</span>
+      <span class="cta-text i18n" data-he="בדיקת זכאות חינם" data-ar="فحص الأهلية مجاناً" data-en="Free Eligibility Check">בדיקת זכאות חינם</span>
       <span class="arrow">←</span>
     </a>
   </div>
 </header>
+
+<main>
+
+<!-- ===== STAT BAND — the industry fact that quantifies the value prop =====
+     Note: משרד האוצר's widely-cited figure is "מעל 15 מיליארד ש״ח" in lost funds
+     (e.g. moneyplan.co.il/הר-הכסף-איתור-כספים-אבודים). The visible copy stays at
+     "מיליארדי שקלים" to avoid sourcing a specific number; upgrade if desired. -->
+<div class="stat-band">
+  <p class="stat-band-text k i18n"
+    data-he="מיליארדי שקלים שוכבים בחשבונות לא פעילים בהר הכסף. חלק מהם אולי שלך."
+    data-ar="مليارات الشواكل تقبع في حسابات غير نشطة. ربما بعضها لك."
+    data-en="Billions of shekels sit in dormant accounts in Har HaKesef. Some of it might be yours.">
+    מיליארדי שקלים שוכבים בחשבונות לא פעילים בהר הכסף. חלק מהם אולי שלך.
+  </p>
+</div>
 
 <!-- ===== PENSION TICKER ===== -->
 <div class="ticker" role="region" aria-label="חברות הפנסיה שאיתן אנחנו עובדים">
@@ -928,16 +1196,19 @@ body[lang="en"] .acc-action { text-align: left; }
     <div class="ticker-item has-logo"><img src="./logos/meitav_logo.svg" alt="מיטב"></div>
     <div class="ticker-item has-logo"><img src="./logos/logo_yalin.png" alt="ילין לפידות"></div>
     <div class="ticker-item has-logo"><img src="./logos/infinity_logo.png" alt="אינפיניטי"></div>
-    <!-- duplicated for seamless marquee loop -->
-    <div class="ticker-item has-logo"><img src="./logos/migdal_logo.png" alt="מגדל"></div>
-    <div class="ticker-item has-logo"><img src="./logos/clal_logo.svg" alt="כלל"></div>
-    <div class="ticker-item has-logo"><img src="./logos/harel_logo.png" alt="הראל"></div>
-    <div class="ticker-item has-logo"><img src="./logos/Fnx_Logo.svg" alt="הפניקס"></div>
-    <div class="ticker-item has-logo"><img src="./logos/menora_logo.png" alt="מנורה מבטחים"></div>
-    <div class="ticker-item has-logo"><img src="./logos/altshuler_logo.png" alt="אלטשולר שחם"></div>
-    <div class="ticker-item has-logo"><img src="./logos/meitav_logo.svg" alt="מיטב"></div>
-    <div class="ticker-item has-logo"><img src="./logos/logo_yalin.png" alt="ילין לפידות"></div>
-    <div class="ticker-item has-logo"><img src="./logos/infinity_logo.png" alt="אינפיניטי"></div>
+    <!-- duplicated for seamless marquee loop — hidden from screen readers so
+         the company list is announced once, not twice -->
+    <div aria-hidden="true" style="display: contents;">
+      <div class="ticker-item has-logo"><img src="./logos/migdal_logo.png" alt="מגדל"></div>
+      <div class="ticker-item has-logo"><img src="./logos/clal_logo.svg" alt="כלל"></div>
+      <div class="ticker-item has-logo"><img src="./logos/harel_logo.png" alt="הראל"></div>
+      <div class="ticker-item has-logo"><img src="./logos/Fnx_Logo.svg" alt="הפניקס"></div>
+      <div class="ticker-item has-logo"><img src="./logos/menora_logo.png" alt="מנורה מבטחים"></div>
+      <div class="ticker-item has-logo"><img src="./logos/altshuler_logo.png" alt="אלטשולר שחם"></div>
+      <div class="ticker-item has-logo"><img src="./logos/meitav_logo.svg" alt="מיטב"></div>
+      <div class="ticker-item has-logo"><img src="./logos/logo_yalin.png" alt="ילין לפידות"></div>
+      <div class="ticker-item has-logo"><img src="./logos/infinity_logo.png" alt="אינפיניטי"></div>
+    </div>
   </div>
 </div>
 
@@ -957,8 +1228,8 @@ body[lang="en"] .acc-action { text-align: left; }
         </svg>
       </div>
       <div class="step-body">
-        <div class="step-title k i18n" data-he="ממלא טופס" data-ar="تعبئة النموذج" data-en="Fill the Form">ממלא טופס</div>
-        <div class="step-desc i18n" data-he="השאר פרטים בטופס הקצר — לוקח פחות מדקה" data-ar="أدخل بياناتك في النموذج القصير — أقل من دقيقة" data-en="Fill in the short form — takes less than a minute">השאר פרטים בטופס הקצר — לוקח פחות מדקה</div>
+        <h3 class="step-title k i18n" data-he="ממלאים טופס" data-ar="تعبئة النموذج" data-en="Fill the Form">ממלאים טופס</h3>
+        <div class="step-desc i18n" data-he="משאירים פרטים בטופס הקצר. לוקח פחות מדקה" data-ar="اترك بياناتك في النموذج القصير. يستغرق أقل من دقيقة" data-en="Fill in the short form. Takes less than a minute">משאירים פרטים בטופס הקצר. לוקח פחות מדקה</div>
       </div>
     </div>
 
@@ -974,8 +1245,8 @@ body[lang="en"] .acc-action { text-align: left; }
         </svg>
       </div>
       <div class="step-body">
-        <div class="step-title k i18n" data-he="נציג חוזר אליך" data-ar="يتواصل معك أحد ممثلينا" data-en="We Call You Back">נציג חוזר אליך</div>
-        <div class="step-desc i18n" data-he="נציג מקצועי יצור איתך קשר תוך 24 שעות לבדיקת הזכאות" data-ar="سيتواصل معك أحد المختصين خلال 24 ساعة للتحقق من الأهلية" data-en="A professional will contact you within 24 hours to check eligibility">נציג מקצועי יצור איתך קשר תוך 24 שעות לבדיקת הזכאות</div>
+        <h3 class="step-title k i18n" data-he="נציג חוזר אליך" data-ar="يتواصل معك أحد ممثلينا" data-en="We Call You Back">נציג חוזר אליך</h3>
+        <div class="step-desc i18n" data-he="נציג מקצועי חוזר אליך תוך 24 שעות, בודק את הר הכסף ואת הקרנות על שמך, ומאתר כל שקל" data-ar="يتواصل معك مختص خلال 24 ساعة، يفحص الحسابات والصناديق المسجلة باسمك، ويحدد كل شيكل" data-en="A professional gets back to you within 24 hours, checks Har HaKesef and the funds in your name, and locates every shekel">נציג מקצועי חוזר אליך תוך 24 שעות, בודק את הר הכסף ואת הקרנות על שמך, ומאתר כל שקל</div>
       </div>
     </div>
 
@@ -997,8 +1268,8 @@ body[lang="en"] .acc-action { text-align: left; }
         </svg>
       </div>
       <div class="step-body">
-        <div class="step-title k i18n" data-he="מקבל את הכסף" data-ar="استلام الأموال" data-en="Receive Your Money">מקבל את הכסף</div>
-        <div class="step-desc i18n" data-he="אנחנו מטפלים בכל הבירוקרטיה — אתה רק מקבל את הכסף לחשבון" data-ar="نتولى كل الإجراءات البيروقراطية — وتستلم الأموال مباشرة" data-en="We handle all paperwork — you just receive the money in your account">אנחנו מטפלים בכל הבירוקרטיה — אתה רק מקבל את הכסף לחשבון</div>
+        <h3 class="step-title k i18n" data-he="מקבלים את הכסף" data-ar="استلام الأموال" data-en="Receive Your Money">מקבלים את הכסף</h3>
+        <div class="step-desc i18n" data-he="אנחנו מטפלים בכל הבירוקרטיה. הכסף נכנס ישר לחשבון שלך" data-ar="نتولى كل الإجراءات البيروقراطية. الأموال تدخل مباشرة إلى حسابك" data-en="We handle all the paperwork. The money goes straight into your account">אנחנו מטפלים בכל הבירוקרטיה. הכסף נכנס ישר לחשבון שלך</div>
       </div>
     </div>
   </div>
@@ -1012,8 +1283,8 @@ body[lang="en"] .acc-action { text-align: left; }
   <div class="why-grid">
     <div class="why-card lead">
       <div>
-        <div class="why-title k i18n" data-he="פעולה<br>חוקית<br>לחלוטין" data-ar="إجراءات<br>قانونية<br>تماماً" data-en="100%<br>Legal">פעולה<br>חוקית<br>לחלוטין</div>
-        <div class="why-text i18n" data-he="כל התהליך מתבצע בהתאם לחוק הישראלי ובאישור הגורמים המוסמכים. ללא קיצורי דרך, ללא אפורים." data-ar="تتم جميع الإجراءات وفق القانون الإسرائيلي وبموافقة الجهات المختصة." data-en="The entire process complies with Israeli law and authorized bodies. No shortcuts, no grey areas.">כל התהליך מתבצע בהתאם לחוק הישראלי ובאישור הגורמים המוסמכים. ללא קיצורי דרך, ללא אפורים.</div>
+        <h3 class="why-title k i18n" data-he="פעולה<br>חוקית<br>לחלוטין" data-ar="إجراءات<br>قانونية<br>تماماً" data-en="100%<br>Legal">פעולה<br>חוקית<br>לחלוטין</h3>
+        <div class="why-text i18n" data-he="כל התהליך מתבצע בהתאם לחוק הישראלי ובאישור הגורמים המוסמכים. בלי קיצורי דרך ובלי אזורים אפורים." data-ar="تتم جميع الإجراءات وفق القانون الإسرائيلي وبموافقة الجهات المختصة. بدون اختصارات وبدون مناطق رمادية." data-en="The entire process complies with Israeli law and authorized bodies. No shortcuts, no grey areas.">כל התהליך מתבצע בהתאם לחוק הישראלי ובאישור הגורמים המוסמכים. בלי קיצורי דרך ובלי אזורים אפורים.</div>
       </div>
       <svg class="why-fragment" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="40" cy="40" r="22" fill="none" stroke="#19140C" stroke-width="2.5"/>
@@ -1026,8 +1297,8 @@ body[lang="en"] .acc-action { text-align: left; }
 
     <div class="why-card">
       <div>
-        <div class="why-title k i18n" data-he="ללא עלות מראש" data-ar="بدون تكلفة مسبقة" data-en="No Upfront Cost">ללא עלות מראש</div>
-        <div class="why-text i18n" data-he="אנחנו עובדים בהצלחה — משלמים רק אם קיבלת כסף." data-ar="نعمل بنظام النجاح — تدفع فقط عند استلام أموالك." data-en="We work on success basis — you pay only when you receive money.">אנחנו עובדים בהצלחה — משלמים רק אם קיבלת כסף.</div>
+        <h3 class="why-title k i18n" data-he="ללא עלות מראש" data-ar="بدون تكلفة مسبقة" data-en="No Upfront Cost">ללא עלות מראש</h3>
+        <div class="why-text i18n" data-he="עובדים רק על הצלחה. משלמים רק אם קיבלת כסף." data-ar="نعمل على أساس النجاح فقط. تدفع فقط إذا استلمت أموالاً." data-en="Success fee only. You pay only if you receive money.">עובדים רק על הצלחה. משלמים רק אם קיבלת כסף.</div>
       </div>
       <svg class="why-fragment" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path d="M 8 60 Q 40 8 72 60" fill="none" stroke="#19140C" stroke-width="2.5" stroke-linecap="round"/>
@@ -1037,7 +1308,7 @@ body[lang="en"] .acc-action { text-align: left; }
 
     <div class="why-card offset">
       <div>
-        <div class="why-title k i18n" data-he="פרטיות מלאה" data-ar="خصوصية تامة" data-en="Full Privacy">פרטיות מלאה</div>
+        <h3 class="why-title k i18n" data-he="פרטיות מלאה" data-ar="خصوصية تامة" data-en="Full Privacy">פרטיות מלאה</h3>
         <div class="why-text i18n" data-he="המידע שלך מוגן ומאובטח. אנחנו לא מעבירים פרטים לגורמים שלישיים." data-ar="معلوماتك محمية وآمنة. نحن لا نشارك بياناتك مع أطراف ثالثة." data-en="Your information is protected and secure. We never share details with third parties.">המידע שלך מוגן ומאובטח. אנחנו לא מעבירים פרטים לגורמים שלישיים.</div>
       </div>
       <svg class="why-fragment" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -1048,7 +1319,7 @@ body[lang="en"] .acc-action { text-align: left; }
 
     <div class="why-card">
       <div>
-        <div class="why-title k i18n" data-he="תהליך מהיר" data-ar="عملية سريعة" data-en="Fast Process">תהליך מהיר</div>
+        <h3 class="why-title k i18n" data-he="תהליך מהיר" data-ar="عملية سريعة" data-en="Fast Process">תהליך מהיר</h3>
         <div class="why-text i18n" data-he="מטפלים בכל הניירת ומזרזים את התהליך מול הגופים הפנסיוניים." data-ar="نتولى جميع الأوراق ونسرّع العملية مع صناديق التقاعد." data-en="We handle all paperwork and expedite the process with pension bodies.">מטפלים בכל הניירת ומזרזים את התהליך מול הגופים הפנסיוניים.</div>
       </div>
       <svg class="why-fragment" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -1063,8 +1334,8 @@ body[lang="en"] .acc-action { text-align: left; }
 
     <div class="why-card offset">
       <div>
-        <div class="why-title k i18n" data-he="תכנוני מס חכמים" data-ar="تخطيط ضريبي ذكي" data-en="Smart Tax Planning">תכנוני מס חכמים</div>
-        <div class="why-text i18n" data-he="תכנון משיכה אופטימלי — תשלם פחות, תקבל יותר." data-ar="تخطيط ضريبي أمثل — تدفع أقل وتحصل على أكثر." data-en="Optimal withdrawal planning — pay less, receive more.">תכנון משיכה אופטימלי — תשלם פחות, תקבל יותר.</div>
+        <h3 class="why-title k i18n" data-he="מקסימום כסף, מינימום מס" data-ar="أقصى قدر من المال، أدنى قدر من الضرائب" data-en="Maximum Money, Minimum Tax">מקסימום כסף, מינימום מס</h3>
+        <div class="why-text i18n" data-he="משיכה חכמה: לשלם פחות מס, לקבל יותר כסף." data-ar="سحب ذكي: ضرائب أقل، أموال أكثر." data-en="Smart withdrawal: pay less tax, receive more money.">משיכה חכמה: לשלם פחות מס, לקבל יותר כסף.</div>
       </div>
       <svg class="why-fragment" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path d="M 20 40 A 20 20 0 1 1 60 40" fill="#F5B82E" stroke="#19140C" stroke-width="2.5"/>
@@ -1073,10 +1344,96 @@ body[lang="en"] .acc-action { text-align: left; }
   </div>
 </section>
 
+<!-- ===== FAQ ===== -->
+<section class="content curtain z5" role="region" aria-labelledby="faq-title">
+  <div class="section-eyebrow i18n" data-he="תשובות לפני שאתם שואלים" data-ar="إجابات قبل أن تسألوا" data-en="Answers before you ask">תשובות לפני שאתם שואלים</div>
+  <h2 class="section-title k i18n" id="faq-title" data-he="שאלות נפוצות" data-ar="أسئلة شائعة" data-en="Frequently Asked Questions">שאלות נפוצות</h2>
+
+  <div class="faq-list">
+    <details class="faq-item" open>
+      <summary class="faq-q">
+        <span class="i18n" data-he="כמה זה עולה?" data-ar="كم يكلف ذلك؟" data-en="How much does it cost?">כמה זה עולה?</span>
+        <span class="faq-marker" aria-hidden="true">+</span>
+      </summary>
+      <p class="faq-a i18n"
+        data-he="בדיקת הזכאות חינם לחלוטין. אנחנו עובדים על בסיס הצלחה בלבד: עמלה נגבית רק מתוך כספים שמומשו בפועל עבורך. לא נמצא כסף? לא שילמת שקל."
+        data-ar="فحص الأهلية مجاني تماماً. نحن نعمل على أساس النجاح فقط: تُحصَّل عمولة فقط من الأموال التي تم تحريرها فعلياً لصالحك. لم يُعثر على أموال؟ لن تدفع شيئاً."
+        data-en="The eligibility check is completely free. We work on a success-fee basis only: a commission is collected only from funds actually released for you. No money found? You pay nothing.">
+        בדיקת הזכאות חינם לחלוטין. אנחנו עובדים על בסיס הצלחה בלבד: עמלה נגבית רק מתוך כספים שמומשו בפועל עבורך. לא נמצא כסף? לא שילמת שקל.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">
+        <span class="i18n" data-he="זה בכלל חוקי?" data-ar="هل هذا قانوني أصلاً؟" data-en="Is this even legal?">זה בכלל חוקי?</span>
+        <span class="faq-marker" aria-hidden="true">+</span>
+      </summary>
+      <p class="faq-a i18n"
+        data-he="לגמרי. אנחנו פועלים מול הגופים המוסדיים ומול מאגר הר הכסף הממשלתי, בהתאם לחוק ורק באישור שלך. כל פעולה שמחייבת בעל רישיון מתבצעת על ידי בעלי רישיון מתאימים."
+        data-ar="تماماً. نحن نعمل مع الجهات المؤسسية ومع قاعدة البيانات الحكومية، وفقاً للقانون وبموافقتك فقط. أي إجراء يتطلب ترخيصاً يتم بواسطة جهات مرخصة."
+        data-en="Completely. We work with institutional bodies and the government Har HaKesef registry, according to the law and only with your approval. Any action requiring a license is performed by licensed professionals.">
+        לגמרי. אנחנו פועלים מול הגופים המוסדיים ומול מאגר הר הכסף הממשלתי, בהתאם לחוק ורק באישור שלך. כל פעולה שמחייבת בעל רישיון מתבצעת על ידי בעלי רישיון מתאימים.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">
+        <span class="i18n" data-he="למה אתם צריכים את תעודת הזהות שלי?" data-ar="لماذا تحتاجون رقم هويتي؟" data-en="Why do you need my ID number?">למה אתם צריכים את תעודת הזהות שלי?</span>
+        <span class="faq-marker" aria-hidden="true">+</span>
+      </summary>
+      <p class="faq-a i18n"
+        data-he="הגופים הפנסיוניים ומאגר הר הכסף מזהים חשבונות לפי מספר תעודת זהות, ובלעדיו אי אפשר לאתר כספים על שמך. הת&quot;ז משמשת רק לבדיקה הזו, לא מועברת לאף גורם אחר, ומוגנת לפי חוק הגנת הפרטיות."
+        data-ar="الجهات المؤسسية وقاعدة البيانات الحكومية تحدد الحسابات حسب رقم الهوية، وبدونه لا يمكن تحديد أموال باسمك. يُستخدم رقم الهوية لهذا الفحص فقط، ولا يُنقل لأي جهة أخرى، ومحمي بموجب قانون حماية الخصوصية."
+        data-en="Pension bodies and Har HaKesef identify accounts by ID number; without it, funds in your name cannot be located. Your ID is used only for this check, never passed to anyone else, and protected under the Privacy Protection Law.">
+        הגופים הפנסיוניים ומאגר הר הכסף מזהים חשבונות לפי מספר תעודת זהות, ובלעדיו אי אפשר לאתר כספים על שמך. הת"ז משמשת רק לבדיקה הזו, לא מועברת לאף גורם אחר, ומוגנת לפי חוק הגנת הפרטיות.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">
+        <span class="i18n" data-he="כמה זמן לוקח התהליך?" data-ar="كم يستغرق الإجراء؟" data-en="How long does the process take?">כמה זמן לוקח התהליך?</span>
+        <span class="faq-marker" aria-hidden="true">+</span>
+      </summary>
+      <p class="faq-a i18n"
+        data-he="נציג חוזר אליך תוך 24 שעות, והבדיקה הראשונית אורכת ימים בודדים. שחרור הכספים בפועל תלוי בגופים המחזיקים בהם, בדרך כלל בין שבועות לחודשים בודדים."
+        data-ar="يتواصل معك مختص خلال 24 ساعة، ويستغرق الفحص الأولي أياماً معدودة. تحرير الأموال الفعلي يعتمد على الجهات نفسها، عادة بين أسابيع إلى أشهر قليلة."
+        data-en="A representative gets back to you within 24 hours, and the initial check takes a few days. The actual release of funds depends on the institutions holding them, usually between weeks and a few months.">
+        נציג חוזר אליך תוך 24 שעות, והבדיקה הראשונית אורכת ימים בודדים. שחרור הכספים בפועל תלוי בגופים המחזיקים בהם, בדרך כלל בין שבועות לחודשים בודדים.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">
+        <span class="i18n" data-he="מה אם לא יימצא כסף על שמי?" data-ar="ماذا لو لم يُعثر على أموال باسمي؟" data-en="What if no money is found in my name?">מה אם לא יימצא כסף על שמי?</span>
+        <span class="faq-marker" aria-hidden="true">+</span>
+      </summary>
+      <p class="faq-a i18n"
+        data-he="לא קורה כלום. הבדיקה חינם, ואם אין כסף לא משלמים. אצל רוב מי שעבד ביותר ממקום עבודה אחד נמצא לפחות חשבון אחד לא פעיל."
+        data-ar="لا شيء يحدث. الفحص مجاني، وإذا لم تكن هناك أموال فلن تدفع. لدى معظم من عمل في أكثر من مكان عمل واحد يوجد على الأقل حساب واحد غير نشط."
+        data-en="Nothing happens. The check is free, and if there is no money, you pay nothing. Most people who worked at more than one workplace have at least one dormant account.">
+        לא קורה כלום. הבדיקה חינם, ואם אין כסף לא משלמים. אצל רוב מי שעבד ביותר ממקום עבודה אחד נמצא לפחות חשבון אחד לא פעיל.
+      </p>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">
+        <span class="i18n" data-he="אילו סוגי כספים אתם מאתרים?" data-ar="ما أنواع الأموال التي تحددونها؟" data-en="What types of funds do you locate?">אילו סוגי כספים אתם מאתרים?</span>
+        <span class="faq-marker" aria-hidden="true">+</span>
+      </summary>
+      <p class="faq-a i18n"
+        data-he="קרנות פנסיה ישנות, קופות גמל, קרנות השתלמות, פוליסות ביטוח חיים ומנהלים, כספי פיצויים וחשבונות לא פעילים שמופיעים בהר הכסף."
+        data-ar="صناديق تقاعد قديمة، صناديق ادخار، صناديق تأهيل، بوالص تأمين على الحياة، أموال تعويضات وحسابات غير نشطة تظهر في قاعدة البيانات الحكومية."
+        data-en="Old pension funds, provident funds, study funds (keren hishtalmut), executive and life insurance policies, severance funds, and dormant accounts listed in Har HaKesef.">
+        קרנות פנסיה ישנות, קופות גמל, קרנות השתלמות, פוליסות ביטוח חיים ומנהלים, כספי פיצויים וחשבונות לא פעילים שמופיעים בהר הכסף.
+      </p>
+    </details>
+  </div>
+</section>
+
 <!-- ===== FORM ===== -->
-<section class="content form-section curtain z5" id="form" role="region" aria-labelledby="form-title">
-  <div class="section-eyebrow i18n" data-he="השאר פרטים" data-ar="اترك بياناتك" data-en="Leave details">השאר פרטים</div>
-  <h2 class="section-title k i18n" id="form-title" data-he="נחזור אליך" data-ar="سنتواصل معك" data-en="We'll Call You Back">נחזור אליך</h2>
+<section class="content form-section curtain z6" id="form" role="region" aria-labelledby="form-title">
+  <div class="section-eyebrow i18n" data-he="נחזור אליך תוך 24 שעות" data-ar="سنعاود الاتصال بك خلال 24 ساعة" data-en="We get back to you within 24 hours">נחזור אליך תוך 24 שעות</div>
+  <h2 class="section-title k i18n" id="form-title" data-he="כמה מגיע לך? בודקים בחינם" data-ar="كم يحق لك؟ نفحص مجاناً" data-en="How Much Are You Owed? Free Check">כמה מגיע לך? בודקים בחינם</h2>
 
   <div class="form-card" id="formCard">
 
@@ -1109,72 +1466,111 @@ body[lang="en"] .acc-action { text-align: left; }
       <div class="form-row">
         <div class="field">
           <label for="full_name"><span class="req">*</span><span class="i18n" data-he="שם מלא" data-ar="الاسم الكامل" data-en="Full Name">שם מלא</span></label>
-          <input type="text" id="full_name" name="full_name" autocomplete="name" required aria-required="true">
+          <input type="text" id="full_name" name="full_name" autocomplete="name" required aria-required="true" aria-describedby="err_name">
           <div class="error-msg i18n" id="err_name" data-he="נא להזין שם מלא" data-ar="يرجى إدخال الاسم الكامل" data-en="Please enter your full name">נא להזין שם מלא</div>
         </div>
         <div class="field">
           <label for="id_number"><span class="req">*</span><span class="i18n" data-he="תעודת זהות" data-ar="رقم الهوية" data-en="ID Number">תעודת זהות</span></label>
-          <input type="text" id="id_number" name="id_number" inputmode="numeric" maxlength="9" placeholder="9 ספרות" required aria-required="true" dir="ltr">
+          <input type="text" id="id_number" name="id_number" inputmode="numeric" maxlength="9" pattern="\d{9}" placeholder="9 ספרות" required aria-required="true" dir="ltr" aria-describedby="id_help err_id">
           <div class="error-msg i18n" id="err_id" data-he="נא להזין ת.ז. תקינה (9 ספרות)" data-ar="يرجى إدخال رقم هوية صحيح (9 أرقام)" data-en="Please enter a valid ID (9 digits)">נא להזין ת.ז. תקינה (9 ספרות)</div>
+          <div class="field-hint i18n" id="id_help"
+            data-he="הת.ז. משמשת רק לאיתור חשבונות על שמך מול הגופים הפנסיוניים, ולא מועברת לאף גורם אחר. מסירת הפרטים בהסכמתך. <a href='./privacy.html'>למדיניות הפרטיות</a>"
+            data-ar="رقم الهوية يُستخدم فقط لتحديد الحسابات المسجلة باسمك لدى الجهات المعنية، ولا يُنقل إلى أي جهة أخرى. تقديم البيانات بموافقتك. <a href='./privacy.html'>سياسة الخصوصية</a>"
+            data-en="Your ID is used only to locate accounts in your name with pension bodies, and is never passed to anyone else. Providing it is voluntary. <a href='./privacy.html'>Privacy policy</a>">
+            הת.ז. משמשת רק לאיתור חשבונות על שמך מול הגופים הפנסיוניים, ולא מועברת לאף גורם אחר. מסירת הפרטים בהסכמתך. <a href="./privacy.html">למדיניות הפרטיות</a>
+          </div>
         </div>
       </div>
       <div class="form-row">
         <div class="field">
           <label for="birth_date"><span class="req">*</span><span class="i18n" data-he="תאריך לידה" data-ar="تاريخ الميلاد" data-en="Date of Birth">תאריך לידה</span></label>
-          <input type="date" id="birth_date" name="birth_date" required aria-required="true">
+          <input type="date" id="birth_date" name="birth_date" autocomplete="bday" required aria-required="true" aria-describedby="err_dob">
           <div class="error-msg i18n" id="err_dob" data-he="נא להזין תאריך לידה" data-ar="يرجى إدخال تاريخ الميلاد" data-en="Please enter your date of birth">נא להזין תאריך לידה</div>
         </div>
         <div class="field">
           <label for="phone"><span class="req">*</span><span class="i18n" data-he="מספר טלפון" data-ar="رقم الهاتف" data-en="Phone Number">מספר טלפון</span></label>
-          <input type="tel" id="phone" name="phone" inputmode="tel" placeholder="05X-XXXXXXX" required aria-required="true" dir="ltr">
+          <input type="tel" id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="05X-XXXXXXX" required aria-required="true" dir="ltr" aria-describedby="err_phone">
           <div class="error-msg i18n" id="err_phone" data-he="נא להזין מספר טלפון תקין" data-ar="يرجى إدخال رقم هاتف صحيح" data-en="Please enter a valid phone number">נא להזין מספר טלפון תקין</div>
         </div>
+      </div>
+
+      <!-- Honeypot — invisible to humans (hidden, not focusable, not announced).
+           Bots that auto-fill every field reveal themselves; submissions with this
+           field filled show the success UI but never reach the webhook. -->
+      <div class="hp-wrap" aria-hidden="true">
+        <label for="company_website">Company Website</label>
+        <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off">
       </div>
 
       <label class="consent">
         <input type="checkbox" id="consent" name="consent" required aria-required="true">
         <span class="i18n"
-          data-he="אני מאשר/ת קבלת פנייה מנציג שמש מימוש זכויות ומסכים/ה ל<a href='#'>תנאי השימוש</a> ו<a href='#'>מדיניות הפרטיות</a>."
-          data-ar="أوافق على تلقي اتصال من ممثل شمش وأقبل <a href='#'>شروط الاستخدام</a> و<a href='#'>سياسة الخصوصية</a>."
-          data-en="I consent to being contacted by a Shemesh representative and agree to the <a href='#'>Terms of Use</a> and <a href='#'>Privacy Policy</a>.">
-          אני מאשר/ת קבלת פנייה מנציג שמש מימוש זכויות ומסכים/ה ל<a href="#">תנאי השימוש</a> ו<a href="#">מדיניות הפרטיות</a>.
+          data-he="אני מאשר/ת קבלת פנייה מנציג שמש מימוש זכויות ומסכים/ה ל<a href='./terms.html'>תנאי השימוש</a> ו<a href='./privacy.html'>מדיניות הפרטיות</a>."
+          data-ar="أوافق على تلقي اتصال من ممثل شمش وأقبل <a href='./terms.html'>شروط الاستخدام</a> و<a href='./privacy.html'>سياسة الخصوصية</a>."
+          data-en="I consent to being contacted by a Shemesh representative and agree to the <a href='./terms.html'>Terms of Use</a> and <a href='./privacy.html'>Privacy Policy</a>.">
+          אני מאשר/ת קבלת פנייה מנציג שמש מימוש זכויות ומסכים/ה ל<a href="./terms.html">תנאי השימוש</a> ו<a href="./privacy.html">מדיניות הפרטיות</a>.
         </span>
       </label>
+      <div class="error-msg i18n" id="err_consent" data-he="נא לאשר את תנאי השימוש ומדיניות הפרטיות" data-ar="يرجى الموافقة على شروط الاستخدام وسياسة الخصوصية" data-en="Please accept the Terms of Use and Privacy Policy">נא לאשר את תנאי השימוש ומדיניות הפרטיות</div>
+
+      <p class="submit-trust i18n"
+        data-he="בלי עלות מראש. משלמים רק אם קיבלתם כסף."
+        data-ar="بدون تكلفة مسبقة. تدفعون فقط إذا استلمتم أموالاً."
+        data-en="No upfront cost. You pay only if you receive money.">
+        בלי עלות מראש. משלמים רק אם קיבלתם כסף.
+      </p>
 
       <button type="submit" class="submit-btn" id="submitBtn">
-        <span class="btn-text i18n" data-he="שלח פרטים ←" data-ar="إرسال البيانات ←" data-en="Send Details →">שלח פרטים ←</span>
+        <span class="btn-text i18n" data-he="שליחה ובדיקה ←" data-ar="إرسال وفحص ←" data-en="Send &amp; Check →">שליחה ובדיקה ←</span>
       </button>
     </form>
 
     <div class="success-msg" id="successMsg" role="alert">
-      <svg class="success-mark" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <g stroke="#19140C" stroke-width="2.5" stroke-linecap="round">
-          <line x1="40" y1="6" x2="40" y2="18"/>
-          <line x1="40" y1="62" x2="40" y2="74"/>
-          <line x1="6" y1="40" x2="18" y2="40"/>
-          <line x1="62" y1="40" x2="74" y2="40"/>
-          <line x1="14" y1="14" x2="22" y2="22"/>
-          <line x1="66" y1="14" x2="58" y2="22"/>
-          <line x1="14" y1="66" x2="22" y2="58"/>
-          <line x1="66" y1="66" x2="58" y2="58"/>
-        </g>
-        <circle cx="40" cy="40" r="20" fill="#F5B82E" stroke="#19140C" stroke-width="2.5"/>
-        <circle cx="40" cy="40" r="8" fill="#C4501C"/>
-      </svg>
-      <div class="success-title k i18n" data-he="תודה! קיבלנו את פרטיך" data-ar="شكراً! تلقينا بياناتك" data-en="Thank You! We've Received Your Details">תודה! קיבלנו את פרטיך</div>
-      <p class="success-text i18n" data-he="נציג מקצועי יצור איתך קשר בקרוב לבדיקת הזכאות שלך" data-ar="سيتواصل معك أحد المختصين قريباً للتحقق من أهليتك" data-en="A professional representative will contact you soon to check your eligibility">נציג מקצועי יצור איתך קשר בקרוב לבדיקת הזכאות שלך</p>
+      <!-- The sunrise: the user's own submission makes the sun rise (brand = שמש) -->
+      <div class="sunrise-stage" aria-hidden="true">
+        <svg class="sunrise" viewBox="0 0 400 210" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#19140C" stroke-width="4" stroke-linecap="round">
+            <line x1="200" y1="20"  x2="200" y2="55"/>
+            <line x1="118" y1="48"  x2="140" y2="76"/>
+            <line x1="282" y1="48"  x2="260" y2="76"/>
+            <line x1="62"  y1="110" x2="100" y2="122"/>
+            <line x1="338" y1="110" x2="300" y2="122"/>
+          </g>
+          <path d="M 110 205 A 90 90 0 0 1 290 205 Z" fill="#F5B82E" stroke="#19140C" stroke-width="4"/>
+          <circle cx="200" cy="198" r="28" fill="#C4501C"/>
+          <line x1="40" y1="205" x2="360" y2="205" stroke="#19140C" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3 class="success-title k i18n" data-he="תודה! קיבלנו את פרטיך" data-ar="شكراً! تلقينا بياناتك" data-en="Thank You! We've Received Your Details">תודה! קיבלנו את פרטיך</h3>
+      <ol class="success-timeline">
+        <li class="tl-done">
+          <span class="tl-marker" aria-hidden="true"></span>
+          <span class="i18n" data-he="הפרטים התקבלו" data-ar="تم استلام البيانات" data-en="Details received">הפרטים התקבלו</span>
+        </li>
+        <li>
+          <span class="tl-marker" aria-hidden="true"></span>
+          <span class="i18n" data-he="נציג בודק את הר הכסף על שמך" data-ar="مختص يفحص الحسابات المسجلة باسمك" data-en="A representative checks Har HaKesef in your name">נציג בודק את הר הכסף על שמך</span>
+        </li>
+        <li>
+          <span class="tl-marker" aria-hidden="true"></span>
+          <span class="i18n" data-he="חוזרים אליך טלפונית תוך 24 שעות" data-ar="نتصل بك هاتفياً خلال 24 ساعة" data-en="We call you back within 24 hours">חוזרים אליך טלפונית תוך 24 שעות</span>
+        </li>
+      </ol>
+      <p class="success-text i18n" data-he="שווה לענות. יכול להיות ששווה לך הרבה כסף." data-ar="يستحق الرد. فقد يعني لك الكثير من المال." data-en="Worth answering. It could be worth real money.">שווה לענות. יכול להיות ששווה לך הרבה כסף.</p>
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ===== FOOTER ===== -->
 <footer role="contentinfo">
   <div class="footer-legal">
     <span class="i18n"
-      data-he="שמש מימוש זכויות © 2026 | <a href='#'>תנאי שימוש</a> | <a href='#'>מדיניות פרטיות</a>"
-      data-ar="شمش لتحقيق الحقوق © 2026 | <a href='#'>شروط الاستخدام</a> | <a href='#'>سياسة الخصوصية</a>"
-      data-en="Shemesh Rights Realization © 2026 | <a href='#'>Terms of Use</a> | <a href='#'>Privacy Policy</a>">
-      שמש מימוש זכויות © 2026 | <a href="#">תנאי שימוש</a> | <a href="#">מדיניות פרטיות</a>
+      data-he="שמש מימוש זכויות © 2026 | <a href='./terms.html'>תנאי שימוש</a> | <a href='./privacy.html'>מדיניות פרטיות</a> | <a href='./accessibility.html'>הצהרת נגישות</a>"
+      data-ar="شمش لتحقيق الحقوق © 2026 | <a href='./terms.html'>شروط الاستخدام</a> | <a href='./privacy.html'>سياسة الخصوصية</a> | <a href='./accessibility.html'>إعلان إمكانية الوصول</a>"
+      data-en="Shemesh Rights Realization © 2026 | <a href='./terms.html'>Terms of Use</a> | <a href='./privacy.html'>Privacy Policy</a> | <a href='./accessibility.html'>Accessibility Statement</a>">
+      שמש מימוש זכויות © 2026 | <a href="./terms.html">תנאי שימוש</a> | <a href="./privacy.html">מדיניות פרטיות</a> | <a href="./accessibility.html">הצהרת נגישות</a>
     </span>
     <span class="footer-security i18n" data-he="האתר מאובטח ומוגן" data-ar="الموقع آمن ومحمي" data-en="Site is secure and protected">האתר מאובטח ומוגן</span>
   </div>
@@ -1188,7 +1584,7 @@ body[lang="en"] .acc-action { text-align: left; }
 </footer>
 
 <!-- ===== ACCESSIBILITY WIDGET ===== -->
-<button class="acc-btn" id="accBtn" aria-label="תפריט נגישות" title="תפריט נגישות">
+<button class="acc-btn" id="accBtn" aria-label="תפריט נגישות" title="תפריט נגישות" aria-expanded="false" aria-controls="accPanel" aria-haspopup="dialog">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <circle cx="12" cy="3.5" r="1.8" fill="currentColor"/>
     <path d="M5 8.5 L19 8.5 M12 8.5 L12 13.5 M9 13.5 L15 13.5 M9 13.5 L7 21.5 M15 13.5 L17 21.5"
@@ -1245,16 +1641,73 @@ function setLang(lang) {
   }
 }
 
-/* ===== ACCESSIBILITY WIDGET ===== */
+/* ===== ACCESSIBILITY WIDGET =====
+   Preferences persist across pages/reloads via localStorage (IS 5568: an
+   accommodation that resets on every navigation is not an accommodation). */
+const ACC_STORE_KEY = 'shemesh-acc-v1';
+
+function saveAccPrefs() {
+  const p = {
+    font: fontState,
+    contrast: document.body.classList.contains('high-contrast'),
+    noanim: document.body.classList.contains('no-animations')
+  };
+  try { localStorage.setItem(ACC_STORE_KEY, JSON.stringify(p)); } catch(_) {}
+}
+
+function loadAccPrefs() {
+  let p;
+  try { p = JSON.parse(localStorage.getItem(ACC_STORE_KEY) || '{}'); } catch(_) { return; }
+  if (p.font === 'large' || p.font === 'xlarge') {
+    document.body.classList.add(p.font + '-text');
+    fontState = p.font;
+    const btn = document.getElementById('btn-' + p.font);
+    if (btn) { btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true'); }
+  }
+  if (p.contrast) {
+    document.body.classList.add('high-contrast');
+    const btn = document.getElementById('btn-contrast');
+    if (btn) { btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true'); }
+  }
+  if (p.noanim) {
+    document.body.classList.add('no-animations');
+    const btn = document.getElementById('btn-noanim');
+    if (btn) { btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true'); }
+  }
+}
+
+let accLastFocus = null;
 function toggleAcc() {
-  document.getElementById('accPanel').classList.toggle('open');
+  const panel = document.getElementById('accPanel');
+  const btn = document.getElementById('accBtn');
+  const opening = !panel.classList.contains('open');
+  panel.classList.toggle('open', opening);
+  btn.setAttribute('aria-expanded', String(opening));
+  if (opening) {
+    accLastFocus = document.activeElement;
+    const first = panel.querySelector('button');
+    if (first) first.focus();
+  } else if (accLastFocus) {
+    accLastFocus.focus();
+  }
 }
 document.getElementById('accBtn').addEventListener('click', toggleAcc);
 document.addEventListener('click', e => {
   const panel = document.getElementById('accPanel');
   const btn = document.getElementById('accBtn');
-  if (!panel.contains(e.target) && !btn.contains(e.target)) {
+  if (panel.classList.contains('open') && !panel.contains(e.target) && !btn.contains(e.target)) {
     panel.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    const panel = document.getElementById('accPanel');
+    if (panel.classList.contains('open')) {
+      panel.classList.remove('open');
+      document.getElementById('accBtn').setAttribute('aria-expanded', 'false');
+      if (accLastFocus) accLastFocus.focus(); else document.getElementById('accBtn').focus();
+    }
   }
 });
 
@@ -1271,16 +1724,19 @@ function setFontSize(size) {
   document.getElementById('btn-large').setAttribute('aria-pressed', fontState === 'large');
   document.getElementById('btn-xlarge').classList.toggle('active', fontState === 'xlarge');
   document.getElementById('btn-xlarge').setAttribute('aria-pressed', fontState === 'xlarge');
+  saveAccPrefs();
 }
 function toggleContrast() {
   const on = document.body.classList.toggle('high-contrast');
   document.getElementById('btn-contrast').classList.toggle('active', on);
   document.getElementById('btn-contrast').setAttribute('aria-pressed', on);
+  saveAccPrefs();
 }
 function toggleAnimations() {
   const on = document.body.classList.toggle('no-animations');
   document.getElementById('btn-noanim').classList.toggle('active', on);
   document.getElementById('btn-noanim').setAttribute('aria-pressed', on);
+  saveAccPrefs();
 }
 function resetAcc() {
   document.body.classList.remove('large-text', 'xlarge-text', 'high-contrast', 'no-animations');
@@ -1290,7 +1746,10 @@ function resetAcc() {
     el.classList.remove('active');
     el.setAttribute('aria-pressed', 'false');
   });
+  saveAccPrefs();
 }
+// Apply saved preferences on load (button elements exist — script runs after the DOM)
+loadAccPrefs();
 
 /* ===== PENSION TICKER — draggable marquee with iOS-style inertia =====
    - Pointer Events unify mouse + touch + pen, more reliable than touchstart
@@ -1471,7 +1930,22 @@ function validatePhone(p) { return /^0[5][0-9]-?\d{7}$/.test(p.replace(/\s/g, ''
 
 document.getElementById('leadForm').addEventListener('submit', async function(e) {
   e.preventDefault();
+
+  // Honeypot: humans can't see or reach this field; bots that auto-fill every
+  // input reveal themselves. Show the success UI so the bot believes it worked,
+  // but never touch the webhook.
+  const hp = document.getElementById('company_website');
+  if (hp && hp.value) {
+    const hpCard = document.getElementById('formCard');
+    const hpForm = document.getElementById('leadForm');
+    const hpMsg = document.getElementById('successMsg');
+    hpCard.classList.add('is-success');
+    setTimeout(() => { hpForm.style.display = 'none'; hpMsg.classList.add('show'); }, 600);
+    return;
+  }
+
   let valid = true;
+  let firstInvalid = null;
 
   const name = document.getElementById('full_name').value.trim();
   const id   = document.getElementById('id_number').value.trim();
@@ -1480,39 +1954,43 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
   const phone = phoneRaw.replace(/\D/g, ''); // strip non-digits — Surense expects "0500000000"
   const consent = document.getElementById('consent').checked;
 
-  // Reset error state
+  // Reset error state (visual + ARIA)
   ['full_name','id_number','birth_date','phone'].forEach(f => {
-    document.getElementById(f).classList.remove('error');
+    const el = document.getElementById(f);
+    el.classList.remove('error');
+    el.removeAttribute('aria-invalid');
   });
-  ['err_name','err_id','err_dob','err_phone'].forEach(eid => {
-    document.getElementById(eid).classList.remove('show');
+  ['err_name','err_id','err_dob','err_phone','err_consent'].forEach(eid => {
+    const el = document.getElementById(eid);
+    el.classList.remove('show');
+    el.removeAttribute('role');
   });
 
-  if (!name || name.split(/\s+/).filter(Boolean).length < 2) {
-    document.getElementById('full_name').classList.add('error');
-    document.getElementById('err_name').classList.add('show');
+  // Mark a field invalid: visual error + aria-invalid + announce the error to
+  // screen readers via role="alert", and remember the first failure for focus.
+  function fail(fieldId, errId) {
+    const field = fieldId ? document.getElementById(fieldId) : null;
+    const err = document.getElementById(errId);
+    if (field) { field.classList.add('error'); field.setAttribute('aria-invalid', 'true'); }
+    err.classList.add('show');
+    err.setAttribute('role', 'alert');
+    if (!firstInvalid && field) firstInvalid = field;
     valid = false;
   }
-  if (!validateIsraeliId(id)) {
-    document.getElementById('id_number').classList.add('error');
-    document.getElementById('err_id').classList.add('show');
-    valid = false;
-  }
-  if (!dob) {
-    document.getElementById('birth_date').classList.add('error');
-    document.getElementById('err_dob').classList.add('show');
-    valid = false;
-  }
-  if (!validatePhone(phoneRaw)) {
-    document.getElementById('phone').classList.add('error');
-    document.getElementById('err_phone').classList.add('show');
-    valid = false;
-  }
+
+  if (!name || name.split(/\s+/).filter(Boolean).length < 2) fail('full_name', 'err_name');
+  if (!validateIsraeliId(id))                                 fail('id_number', 'err_id');
+  if (!dob)                                                   fail('birth_date', 'err_dob');
+  if (!validatePhone(phoneRaw))                               fail('phone', 'err_phone');
   if (!consent) {
-    alert(currentLang === 'ar' ? 'يجب الموافقة على الشروط' : currentLang === 'en' ? 'Please accept the terms' : 'נא לאשר את תנאי השימוש');
-    valid = false;
+    fail(null, 'err_consent');
+    if (!firstInvalid) firstInvalid = document.getElementById('consent');
   }
-  if (!valid) return;
+
+  if (!valid) {
+    if (firstInvalid) firstInvalid.focus();
+    return;
+  }
 
   const submitBtn = document.getElementById('submitBtn');
   const btnTextEl = submitBtn.querySelector('.btn-text');
@@ -1547,6 +2025,9 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
   setTimeout(() => {
     leadForm.style.display = 'none';
     successMsg.classList.add('show');
+    // Keyboard/screen-reader users: land on the success heading, not a hidden form
+    const successTitle = successMsg.querySelector('.success-title');
+    if (successTitle) { successTitle.setAttribute('tabindex', '-1'); successTitle.focus(); }
   }, 600);
 });
 </script>
