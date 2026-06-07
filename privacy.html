@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://hook.eu2.make.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <title>מדיניות פרטיות | שמש מימוש זכויות</title>
+<meta name="description" content="מדיניות הפרטיות של שמש מימוש זכויות. מידע על איסוף נתונים, זכויות עיון ומחיקה, ואבטחת מידע.">
+<link rel="canonical" href="https://tifult906-netizen.github.io/privacy.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&family=Assistant:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
@@ -170,7 +172,7 @@ body[lang="ar"] .placeholder-banner strong { font-family: 'Noto Kufi Arabic', sa
 }
 body[lang="ar"] .page-content h2 { font-family: 'Noto Kufi Arabic', sans-serif; font-weight: 700; }
 .page-content p { margin-bottom: var(--space-3); color: var(--ink-muted); }
-.page-content ul { margin: 0 var(--space-4) var(--space-3); color: var(--ink-muted); }
+.page-content ul { margin-block: 0 var(--space-3); margin-inline-start: var(--space-4); color: var(--ink-muted); }
 .page-content li { margin-bottom: var(--space-1); }
 .page-content .last-updated {
   font-size: calc(13px * var(--font-scale));
@@ -200,8 +202,8 @@ body[lang="ar"] .page-content h2 { font-family: 'Noto Kufi Arabic', sans-serif; 
   display: inline-block;
   transition: transform 0.18s ease;
 }
-.back-link:hover .arrow { transform: translateX(-4px); }
-body[lang="en"] .back-link:hover .arrow { transform: translateX(4px); }
+.back-link:hover .arrow { transform: translateX(4px); }
+body[lang="en"] .back-link:hover .arrow { transform: translateX(-4px); }
 
 footer {
   background: var(--ink);
@@ -280,17 +282,40 @@ body[lang="en"] .acc-action { text-align: left; }
   main.page { padding: var(--space-5) var(--space-3); }
   footer { flex-direction: column; gap: var(--space-2); text-align: center; }
 }
+
+/* Skip link — first focusable element, visible only on keyboard focus (IS 5568 / WCAG 2.4.1) */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  inset-inline-start: var(--space-3);
+  z-index: 200;
+  background: var(--ink);
+  color: var(--bg-paper);
+  padding: var(--space-2) var(--space-3);
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--bg-paper);
+}
+.skip-link:focus { top: var(--space-2); }
+
+/* Site-wide visible keyboard focus (IS 5568 / WCAG 2.4.7) */
+a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--ember);
+  outline-offset: 2px;
+}
 </style>
 </head>
 <body>
 
-<div class="lang-bar" role="navigation" aria-label="Language selector">
+<a href="#page-main" class="skip-link i18n" data-he="דלג לתוכן הראשי" data-ar="تخطّ إلى المحتوى الرئيسي" data-en="Skip to main content">דלג לתוכן הראשי</a>
+
+<nav class="lang-bar" aria-label="Language selector">
   <button class="lang-btn active" onclick="setLang('he')">עברית</button>
   <button class="lang-btn" onclick="setLang('ar')">العربية</button>
   <button class="lang-btn" onclick="setLang('en')">English</button>
-</div>
+</nav>
 
-<header class="page-header">
+<header class="page-header" role="banner">
   <a href="./" class="shemesh-logo" aria-label="שמש מימוש זכויות, דף הבית">
     <svg class="mark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="6"/>
@@ -313,7 +338,7 @@ body[lang="en"] .acc-action { text-align: left; }
   </a>
 </header>
 
-<main class="page">
+<main class="page" id="page-main" tabindex="-1">
   <div class="page-eyebrow i18n" data-he="מסמך משפטי" data-ar="وثيقة قانونية" data-en="Legal Document">מסמך משפטי</div>
   <h1 class="page-title k i18n" data-he="מדיניות פרטיות" data-ar="سياسة الخصوصية" data-en="Privacy Policy">מדיניות פרטיות</h1>
 
@@ -366,7 +391,7 @@ body[lang="en"] .acc-action { text-align: left; }
   </div>
 
   <a href="./" class="back-link">
-    <span class="arrow">←</span>
+    <span class="arrow">→</span>
     <span class="i18n" data-he="חזרה לדף הבית" data-ar="العودة إلى الصفحة الرئيسية" data-en="Back to home">חזרה לדף הבית</span>
   </a>
 </main>
