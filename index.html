@@ -1085,13 +1085,14 @@ body[lang="en"] .acc-action { text-align: left; }
 <body>
 
 <a href="#main-content" class="skip-link i18n" data-he="דלג לתוכן הראשי" data-ar="تخطّ إلى المحتوى الرئيسي" data-en="Skip to main content">דלג לתוכן הראשי</a>
+<!-- skip-link target is <main id="main-content"> below (moved from hero-content in prior version) -->
 
 <!-- ===== LANG BAR ===== -->
-<div class="lang-bar" role="navigation" aria-label="Language selector">
+<nav class="lang-bar" aria-label="Language selector">
   <button class="lang-btn active" onclick="setLang('he')" aria-label="עברית">עברית</button>
   <button class="lang-btn" onclick="setLang('ar')" aria-label="العربية">العربية</button>
   <button class="lang-btn" onclick="setLang('en')" aria-label="English">English</button>
-</div>
+</nav>
 
 <!-- ===== HERO ===== -->
 <header role="banner">
@@ -1147,7 +1148,7 @@ body[lang="en"] .acc-action { text-align: left; }
   </div>
 
   <!-- Content: visual LEFT (column 2 in source order under RTL); text-aligned right -->
-  <div class="hero-content" id="main-content" tabindex="-1">
+  <div class="hero-content" tabindex="-1">
     <div class="hero-eyebrow i18n" data-he="איתור כספים אבודים ומימוש זכויות" data-ar="تحديد الأموال المفقودة وتحقيق الحقوق" data-en="Lost Funds Location &amp; Rights Realization">איתור כספים אבודים ומימוש זכויות</div>
     <h1 class="hero-title k i18n"
       data-he="<span class='accent'>כסף שמגיע לך</span><br>כבר מחכה לך"
@@ -1168,13 +1169,13 @@ body[lang="en"] .acc-action { text-align: left; }
   </div>
 </header>
 
-<main>
+<main id="main-content">
 
 <!-- ===== STAT BAND — the industry fact that quantifies the value prop =====
      Note: משרד האוצר's widely-cited figure is "מעל 15 מיליארד ש״ח" in lost funds
      (e.g. moneyplan.co.il/הר-הכסף-איתור-כספים-אבודים). The visible copy stays at
      "מיליארדי שקלים" to avoid sourcing a specific number; upgrade if desired. -->
-<div class="stat-band">
+<div class="stat-band" role="region" aria-label="נתון מפתח">
   <p class="stat-band-text k i18n"
     data-he="מיליארדי שקלים שוכבים בחשבונות לא פעילים בהר הכסף. חלק מהם אולי שלך."
     data-ar="مليارات الشواكل تقبع في حسابات غير نشطة. ربما بعضها لك."
@@ -1187,27 +1188,27 @@ body[lang="en"] .acc-action { text-align: left; }
 <div class="ticker" role="region" aria-label="חברות הפנסיה שאיתן אנחנו עובדים">
   <span class="ticker-eyebrow i18n" data-he="חברות שאיתן אנחנו עובדים" data-ar="الشركات التي نتعاون معها" data-en="Companies we work with">חברות שאיתן אנחנו עובדים</span>
   <div class="ticker-track" id="tickerTrack">
-    <div class="ticker-item has-logo"><img src="./logos/migdal_logo.png" alt="מגדל"></div>
-    <div class="ticker-item has-logo"><img src="./logos/clal_logo.svg" alt="כלל"></div>
-    <div class="ticker-item has-logo"><img src="./logos/harel_logo.png" alt="הראל"></div>
-    <div class="ticker-item has-logo"><img src="./logos/Fnx_Logo.svg" alt="הפניקס"></div>
-    <div class="ticker-item has-logo"><img src="./logos/menora_logo.png" alt="מנורה מבטחים"></div>
-    <div class="ticker-item has-logo"><img src="./logos/altshuler_logo.png" alt="אלטשולר שחם"></div>
-    <div class="ticker-item has-logo"><img src="./logos/meitav_logo.svg" alt="מיטב"></div>
-    <div class="ticker-item has-logo"><img src="./logos/logo_yalin.png" alt="ילין לפידות"></div>
-    <div class="ticker-item has-logo"><img src="./logos/infinity_logo.png" alt="אינפיניטי"></div>
+    <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/migdal_logo.png" alt="מגדל"></div>
+    <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/clal_logo.svg" alt="כלל"></div>
+    <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/harel_logo.png" alt="הראל"></div>
+    <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/Fnx_Logo.svg" alt="הפניקס"></div>
+    <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/menora_logo.png" alt="מנורה מבטחים"></div>
+    <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/altshuler_logo.png" alt="אלטשולר שחם"></div>
+    <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/meitav_logo.svg" alt="מיטב"></div>
+    <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/logo_yalin.png" alt="ילין לפידות"></div>
+    <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/infinity_logo.png" alt="אינפיניטי"></div>
     <!-- duplicated for seamless marquee loop — hidden from screen readers so
          the company list is announced once, not twice -->
     <div aria-hidden="true" style="display: contents;">
-      <div class="ticker-item has-logo"><img src="./logos/migdal_logo.png" alt="מגדל"></div>
-      <div class="ticker-item has-logo"><img src="./logos/clal_logo.svg" alt="כלל"></div>
-      <div class="ticker-item has-logo"><img src="./logos/harel_logo.png" alt="הראל"></div>
-      <div class="ticker-item has-logo"><img src="./logos/Fnx_Logo.svg" alt="הפניקס"></div>
-      <div class="ticker-item has-logo"><img src="./logos/menora_logo.png" alt="מנורה מבטחים"></div>
-      <div class="ticker-item has-logo"><img src="./logos/altshuler_logo.png" alt="אלטשולר שחם"></div>
-      <div class="ticker-item has-logo"><img src="./logos/meitav_logo.svg" alt="מיטב"></div>
-      <div class="ticker-item has-logo"><img src="./logos/logo_yalin.png" alt="ילין לפידות"></div>
-      <div class="ticker-item has-logo"><img src="./logos/infinity_logo.png" alt="אינפיניטי"></div>
+      <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/migdal_logo.png" alt="מגדל"></div>
+      <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/clal_logo.svg" alt="כלל"></div>
+      <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/harel_logo.png" alt="הראל"></div>
+      <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/Fnx_Logo.svg" alt="הפניקס"></div>
+      <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/menora_logo.png" alt="מנורה מבטחים"></div>
+      <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/altshuler_logo.png" alt="אלטשולר שחם"></div>
+      <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/meitav_logo.svg" alt="מיטב"></div>
+      <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/logo_yalin.png" alt="ילין לפידות"></div>
+      <div class="ticker-item has-logo"><img loading="lazy" decoding="async" src="./logos/infinity_logo.png" alt="אינפיניטי"></div>
     </div>
   </div>
 </div>
@@ -1462,7 +1463,7 @@ body[lang="en"] .acc-action { text-align: left; }
       <circle cx="300" cy="300" r="28" fill="#C4501C"/>
     </svg>
 
-    <form id="leadForm" novalidate>
+    <form id="leadForm" novalidate aria-labelledby="form-title">
       <div class="form-row">
         <div class="field">
           <label for="full_name"><span class="req">*</span><span class="i18n" data-he="שם מלא" data-ar="الاسم الكامل" data-en="Full Name">שם מלא</span></label>
@@ -1503,7 +1504,7 @@ body[lang="en"] .acc-action { text-align: left; }
       </div>
 
       <label class="consent">
-        <input type="checkbox" id="consent" name="consent" required aria-required="true">
+        <input type="checkbox" id="consent" name="consent" required aria-required="true" aria-describedby="err_consent">
         <span class="i18n"
           data-he="אני מאשר/ת קבלת פנייה מנציג שמש מימוש זכויות ומסכים/ה ל<a href='./terms.html'>תנאי השימוש</a> ו<a href='./privacy.html'>מדיניות הפרטיות</a>."
           data-ar="أوافق على تلقي اتصال من ممثل شمش وأقبل <a href='./terms.html'>شروط الاستخدام</a> و<a href='./privacy.html'>سياسة الخصوصية</a>."
