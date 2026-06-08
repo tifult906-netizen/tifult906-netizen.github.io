@@ -1,0 +1,14 @@
+# secrets
+.env
+.env.*
+*.key
+*.pem
+
+# internal — not for the public site
+_HANDOFF_*.md
+mockups/
+docs/superpowers/
+
+# junk
+.DS_Store
+Thumbs.db
